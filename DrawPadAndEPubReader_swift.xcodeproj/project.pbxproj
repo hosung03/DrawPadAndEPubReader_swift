@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04CD80DF1EFBFE6800E13449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80DE1EFBFE6800E13449 /* AppDelegate.swift */; };
+		04CD80E11EFBFE6900E13449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80E01EFBFE6900E13449 /* ViewController.swift */; };
+		04CD80E41EFBFE6900E13449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CD80E21EFBFE6900E13449 /* Main.storyboard */; };
+		04CD80E61EFBFE6900E13449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04CD80E51EFBFE6900E13449 /* Assets.xcassets */; };
+		04CD80E91EFBFE6900E13449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CD80E71EFBFE6900E13449 /* LaunchScreen.storyboard */; };
+		04CD80F71EFC006900E13449 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80F01EFC006900E13449 /* CollectionViewCell.swift */; };
+		04CD80F81EFC006900E13449 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80F11EFC006900E13449 /* CollectionViewHeader.swift */; };
+		04CD80F91EFC006900E13449 /* DrawPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80F21EFC006900E13449 /* DrawPadView.swift */; };
+		04CD80FA1EFC006900E13449 /* DrawPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80F31EFC006900E13449 /* DrawPadViewController.swift */; };
+		04CD80FB1EFC006900E13449 /* EPubList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CD80F41EFC006900E13449 /* EPubList.plist */; };
+		04CD80FC1EFC006900E13449 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80F51EFC006900E13449 /* LoginViewController.swift */; };
+		04CD80FD1EFC006900E13449 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80F61EFC006900E13449 /* Models.swift */; };
+		D3FCDC7A9E08D55B032AE41F /* Pods_DrawPadAndEPubReader_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEF54298BAC62A368FCA8BB /* Pods_DrawPadAndEPubReader_swift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04CD80DB1EFBFE6800E13449 /* DrawPadAndEPubReader_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawPadAndEPubReader_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04CD80DE1EFBFE6800E13449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04CD80E01EFBFE6900E13449 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04CD80E31EFBFE6900E13449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04CD80E51EFBFE6900E13449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04CD80E81EFBFE6900E13449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04CD80EA1EFBFE6900E13449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CD80F01EFC006900E13449 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		04CD80F11EFC006900E13449 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
+		04CD80F21EFC006900E13449 /* DrawPadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawPadView.swift; sourceTree = "<group>"; };
+		04CD80F31EFC006900E13449 /* DrawPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawPadViewController.swift; sourceTree = "<group>"; };
+		04CD80F41EFC006900E13449 /* EPubList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EPubList.plist; sourceTree = "<group>"; };
+		04CD80F51EFC006900E13449 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		04CD80F61EFC006900E13449 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		6A3088A62A47FBF4C566B5CE /* Pods-DrawPadAndEPubReader_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawPadAndEPubReader_swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrawPadAndEPubReader_swift/Pods-DrawPadAndEPubReader_swift.debug.xcconfig"; sourceTree = "<group>"; };
+		6FEF54298BAC62A368FCA8BB /* Pods_DrawPadAndEPubReader_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrawPadAndEPubReader_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B6F9693C2E03A2550C7EE2 /* Pods-DrawPadAndEPubReader_swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawPadAndEPubReader_swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrawPadAndEPubReader_swift/Pods-DrawPadAndEPubReader_swift.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04CD80D81EFBFE6800E13449 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3FCDC7A9E08D55B032AE41F /* Pods_DrawPadAndEPubReader_swift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04CD80D21EFBFE6800E13449 = {
+			isa = PBXGroup;
+			children = (
+				04CD80DD1EFBFE6800E13449 /* DrawPadAndEPubReader_swift */,
+				04CD80DC1EFBFE6800E13449 /* Products */,
+				D36412F93438735E951F6BED /* Pods */,
+				FE95C6F648A5D3FB3B645159 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		04CD80DC1EFBFE6800E13449 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04CD80DB1EFBFE6800E13449 /* DrawPadAndEPubReader_swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04CD80DD1EFBFE6800E13449 /* DrawPadAndEPubReader_swift */ = {
+			isa = PBXGroup;
+			children = (
+				04CD80F01EFC006900E13449 /* CollectionViewCell.swift */,
+				04CD80F11EFC006900E13449 /* CollectionViewHeader.swift */,
+				04CD80F21EFC006900E13449 /* DrawPadView.swift */,
+				04CD80F31EFC006900E13449 /* DrawPadViewController.swift */,
+				04CD80F51EFC006900E13449 /* LoginViewController.swift */,
+				04CD80F61EFC006900E13449 /* Models.swift */,
+				04CD80DE1EFBFE6800E13449 /* AppDelegate.swift */,
+				04CD80E01EFBFE6900E13449 /* ViewController.swift */,
+				04CD80E21EFBFE6900E13449 /* Main.storyboard */,
+				04CD80E51EFBFE6900E13449 /* Assets.xcassets */,
+				04CD80E71EFBFE6900E13449 /* LaunchScreen.storyboard */,
+				04CD80EA1EFBFE6900E13449 /* Info.plist */,
+				04CD80F41EFC006900E13449 /* EPubList.plist */,
+			);
+			path = DrawPadAndEPubReader_swift;
+			sourceTree = "<group>";
+		};
+		D36412F93438735E951F6BED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A3088A62A47FBF4C566B5CE /* Pods-DrawPadAndEPubReader_swift.debug.xcconfig */,
+				84B6F9693C2E03A2550C7EE2 /* Pods-DrawPadAndEPubReader_swift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FE95C6F648A5D3FB3B645159 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FEF54298BAC62A368FCA8BB /* Pods_DrawPadAndEPubReader_swift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04CD80DA1EFBFE6800E13449 /* DrawPadAndEPubReader_swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04CD80ED1EFBFE6900E13449 /* Build configuration list for PBXNativeTarget "DrawPadAndEPubReader_swift" */;
+			buildPhases = (
+				D7A1986D84F21A31220BEAB3 /* [CP] Check Pods Manifest.lock */,
+				04CD80D71EFBFE6800E13449 /* Sources */,
+				04CD80D81EFBFE6800E13449 /* Frameworks */,
+				04CD80D91EFBFE6800E13449 /* Resources */,
+				624A434CFD19E3A72019619D /* [CP] Embed Pods Frameworks */,
+				689AB07595D4FAD0D0A04024 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrawPadAndEPubReader_swift;
+			productName = DrawPadAndEPubReader_swift;
+			productReference = 04CD80DB1EFBFE6800E13449 /* DrawPadAndEPubReader_swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04CD80D31EFBFE6800E13449 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = hosung;
+				TargetAttributes = {
+					04CD80DA1EFBFE6800E13449 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 04CD80D61EFBFE6800E13449 /* Build configuration list for PBXProject "DrawPadAndEPubReader_swift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04CD80D21EFBFE6800E13449;
+			productRefGroup = 04CD80DC1EFBFE6800E13449 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04CD80DA1EFBFE6800E13449 /* DrawPadAndEPubReader_swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04CD80D91EFBFE6800E13449 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04CD80FB1EFC006900E13449 /* EPubList.plist in Resources */,
+				04CD80E91EFBFE6900E13449 /* LaunchScreen.storyboard in Resources */,
+				04CD80E61EFBFE6900E13449 /* Assets.xcassets in Resources */,
+				04CD80E41EFBFE6900E13449 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		624A434CFD19E3A72019619D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrawPadAndEPubReader_swift/Pods-DrawPadAndEPubReader_swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		689AB07595D4FAD0D0A04024 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrawPadAndEPubReader_swift/Pods-DrawPadAndEPubReader_swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7A1986D84F21A31220BEAB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04CD80D71EFBFE6800E13449 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04CD80FC1EFC006900E13449 /* LoginViewController.swift in Sources */,
+				04CD80FA1EFC006900E13449 /* DrawPadViewController.swift in Sources */,
+				04CD80E11EFBFE6900E13449 /* ViewController.swift in Sources */,
+				04CD80FD1EFC006900E13449 /* Models.swift in Sources */,
+				04CD80F81EFC006900E13449 /* CollectionViewHeader.swift in Sources */,
+				04CD80DF1EFBFE6800E13449 /* AppDelegate.swift in Sources */,
+				04CD80F91EFC006900E13449 /* DrawPadView.swift in Sources */,
+				04CD80F71EFC006900E13449 /* CollectionViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		04CD80E21EFBFE6900E13449 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04CD80E31EFBFE6900E13449 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04CD80E71EFBFE6900E13449 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04CD80E81EFBFE6900E13449 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04CD80EB1EFBFE6900E13449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04CD80EC1EFBFE6900E13449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04CD80EE1EFBFE6900E13449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A3088A62A47FBF4C566B5CE /* Pods-DrawPadAndEPubReader_swift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DrawPadAndEPubReader_swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hosung.DrawPadAndEPubReader-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		04CD80EF1EFBFE6900E13449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84B6F9693C2E03A2550C7EE2 /* Pods-DrawPadAndEPubReader_swift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DrawPadAndEPubReader_swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hosung.DrawPadAndEPubReader-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04CD80D61EFBFE6800E13449 /* Build configuration list for PBXProject "DrawPadAndEPubReader_swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CD80EB1EFBFE6900E13449 /* Debug */,
+				04CD80EC1EFBFE6900E13449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04CD80ED1EFBFE6900E13449 /* Build configuration list for PBXNativeTarget "DrawPadAndEPubReader_swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CD80EE1EFBFE6900E13449 /* Debug */,
+				04CD80EF1EFBFE6900E13449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04CD80D31EFBFE6800E13449 /* Project object */;
+}
