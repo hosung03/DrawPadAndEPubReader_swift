@@ -1,4 +1,4 @@
-# DrawPadAndEPubReader_swift
+# DrawPadAndEPubReader_swift (under developing)
 
 This is my personal project for implementing a iOS application with several features like
 
