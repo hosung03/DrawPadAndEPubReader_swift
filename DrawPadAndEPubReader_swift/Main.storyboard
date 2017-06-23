@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xYL-A1-FP8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IoO-rQ-iUn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,26 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="GFZ-zU-KW7">
-            <objects>
-                <navigationController id="xYL-A1-FP8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lqQ-MP-L03">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bMX-IE-B8T"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bR8-2f-HBB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-932" y="124"/>
-        </scene>
         <!--DrawPad And EPub-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="ViewController" customModule="DrawPadAndEPubReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="ViewController" customModule="DrawPadAndEPubReader_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -47,12 +31,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-190" y="124"/>
+            <point key="canvasLocation" x="310" y="124"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="0Lg-FN-lZc">
             <objects>
-                <viewController storyboardIdentifier="Login" id="iSy-75-FGs" customClass="LoginViewController" customModule="DrawPadAndEPubReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="iSy-75-FGs" customClass="LoginViewController" customModule="DrawPadAndEPubReader_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G2J-m1-4LZ"/>
                         <viewControllerLayoutGuide type="bottom" id="p0E-eH-haA"/>
@@ -92,7 +76,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpk-UY-uwV" customClass="RaisedButton" customModule="Material">
-                                <rect key="frame" x="87.5" y="380" width="200" height="30"/>
+                                <rect key="frame" x="88" y="380" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Cbd-eo-l2C"/>
                                     <constraint firstAttribute="height" constant="30" id="XE2-eH-LHh"/>
@@ -103,7 +87,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nau-fx-XF9" customClass="RaisedButton" customModule="Material">
-                                <rect key="frame" x="52.5" y="415" width="270" height="30"/>
+                                <rect key="frame" x="53" y="415" width="270" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="DLW-FG-4Vz"/>
                                     <constraint firstAttribute="width" constant="270" id="bRq-P9-tPw"/>
@@ -143,25 +127,116 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQF-k2-0uU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="612" y="-143"/>
+            <point key="canvasLocation" x="1076" y="-175"/>
         </scene>
-        <!--Draw Pad View Controller-->
+        <!--Draw Pad-->
         <scene sceneID="8l5-RB-a4V">
             <objects>
-                <viewController id="1gW-Xu-F75" customClass="DrawPadViewController" customModule="DrawPadAndEPubReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1gW-Xu-F75" customClass="DrawPadViewController" customModule="DrawPadAndEPubReader_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8bg-AB-gIn"/>
                         <viewControllerLayoutGuide type="bottom" id="yP6-tl-v92"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="baf-HH-rdD" customClass="DrawPadView" customModule="DrawPadAndEPubReader" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="baf-HH-rdD" customClass="DrawPadView" customModule="DrawPadAndEPubReader_swift" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Draw Pad" id="8ud-7f-wdI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="js7-O8-rST">
+                            <connections>
+                                <segue destination="B0b-DB-5vg" kind="popoverPresentation" identifier="popoverSegue" popoverAnchorBarButtonItem="js7-O8-rST" id="uYZ-Lv-55A">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XT4-L0-1Vf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="612" y="536"/>
+            <point key="canvasLocation" x="1076" y="490"/>
+        </scene>
+        <!--Popover View Controller-->
+        <scene sceneID="SLk-3q-Ejm">
+            <objects>
+                <viewController id="B0b-DB-5vg" customClass="PopoverViewController" customModule="DrawPadAndEPubReader_swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c2f-ep-50F"/>
+                        <viewControllerLayoutGuide type="bottom" id="HDj-U3-C5E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FnI-uQ-ib2">
+                        <rect key="frame" x="0.0" y="0.0" width="220" height="184"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a52-b7-lFc">
+                                <rect key="frame" x="92" y="20" width="37" height="30"/>
+                                <state key="normal" title="Color"/>
+                                <connections>
+                                    <action selector="clickColorMenu:" destination="B0b-DB-5vg" eventType="touchUpInside" id="TrT-wD-0rB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gib-zk-W72">
+                                <rect key="frame" x="74" y="58" width="73" height="30"/>
+                                <state key="normal" title="Brush Size"/>
+                                <connections>
+                                    <action selector="clickBrushSizeMenu:" destination="B0b-DB-5vg" eventType="touchUpInside" id="Q2z-0v-PE6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsG-IF-ixR">
+                                <rect key="frame" x="15" y="96" width="191" height="30"/>
+                                <state key="normal" title="Open Image As Background"/>
+                                <connections>
+                                    <action selector="clickImageBackMenu:" destination="B0b-DB-5vg" eventType="touchUpInside" id="zyJ-hG-lan"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvx-Wo-2AV">
+                                <rect key="frame" x="93" y="134" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="clickSaveMenu:" destination="B0b-DB-5vg" eventType="touchUpInside" id="6dS-hk-AhR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="a52-b7-lFc" firstAttribute="top" secondItem="c2f-ep-50F" secondAttribute="bottom" constant="20" id="48i-YT-Lph"/>
+                            <constraint firstItem="kvx-Wo-2AV" firstAttribute="centerX" secondItem="FnI-uQ-ib2" secondAttribute="centerX" id="8IK-rR-Ouc"/>
+                            <constraint firstItem="JsG-IF-ixR" firstAttribute="top" secondItem="Gib-zk-W72" secondAttribute="bottom" constant="8" symbolic="YES" id="9SE-rm-kUQ"/>
+                            <constraint firstItem="Gib-zk-W72" firstAttribute="centerX" secondItem="FnI-uQ-ib2" secondAttribute="centerX" id="JEN-e9-Iom"/>
+                            <constraint firstItem="HDj-U3-C5E" firstAttribute="top" secondItem="kvx-Wo-2AV" secondAttribute="bottom" constant="20" id="Pv5-89-zhE"/>
+                            <constraint firstItem="Gib-zk-W72" firstAttribute="top" secondItem="a52-b7-lFc" secondAttribute="bottom" constant="8" symbolic="YES" id="VM5-1u-0CP"/>
+                            <constraint firstItem="JsG-IF-ixR" firstAttribute="centerX" secondItem="FnI-uQ-ib2" secondAttribute="centerX" id="dmK-gz-Jcu"/>
+                            <constraint firstItem="a52-b7-lFc" firstAttribute="centerX" secondItem="FnI-uQ-ib2" secondAttribute="centerX" id="l2y-cf-8qh"/>
+                            <constraint firstItem="kvx-Wo-2AV" firstAttribute="top" secondItem="JsG-IF-ixR" secondAttribute="bottom" constant="8" symbolic="YES" id="yvk-uA-etO"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="220" height="184"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="220" height="184"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nnf-Nh-CJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1667" y="358"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gN4-xf-kST">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IoO-rQ-iUn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8FI-2Z-64E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1sc-2M-qrT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CMM-8F-a9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386" y="124"/>
         </scene>
     </scenes>
     <resources>

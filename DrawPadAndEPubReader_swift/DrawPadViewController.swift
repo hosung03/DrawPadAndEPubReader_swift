@@ -2,14 +2,14 @@
 //  DrawPadViewController.swift
 //  DrawPadAndEPubReader
 //
-//  Created by Hosung, Lee on 2017. 6. 14..
+//  Created by mac on 2017. 6. 14..
 //  Copyright © 2017년 hosung. All rights reserved.
 //
-
 import UIKit
 import RealmSwift
 
-class DrawPadViewController: UIViewController {
+class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+
     public var currentNoteId:Int = 0
     public var currentNote:DrawNote?
     public var currentDrawpath:Results<DrawPath>?
@@ -53,17 +53,19 @@ class DrawPadViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "id = %d", currentNoteId)
-        let drawnote = ((realm.objects(DrawNote.self).filter(predicate).first)!)
-        let result = drawnote.paths.filter("TRUEPREDICATE")
-        result.forEach { drawpath in
-            if drawpath.saved == false {
-                drawpath.points.forEach { point in
-                    try! realm.write {
-                        realm.delete(point)
+        let drawnote = realm.objects(DrawNote.self).filter(predicate).first
+        if drawnote != nil {
+            let result = drawnote?.paths.filter("TRUEPREDICATE")
+            result?.forEach { drawpath in
+                if drawpath.saved == false {
+                    drawpath.points.forEach { point in
+                        try! realm.write {
+                            realm.delete(point)
+                        }
                     }
-                }
-                try! realm.write {
-                    realm.delete(drawpath)
+                    try! realm.write {
+                        realm.delete(drawpath)
+                    }
                 }
             }
         }
@@ -73,25 +75,32 @@ class DrawPadViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    //    func showColorPicker() {
-    //        let colorPickerPresentationController = colorPickerViewController.presentationController as! UIPopoverPresentationController
-    //
-    //        colorPickerPresentationController.barButtonItem = navigationItem.rightBarButtonItem
-    //        colorPickerPresentationController.backgroundColor = UIColor.white
-    //        colorPickerPresentationController.delegate = self
-    //
-    //        present(colorPickerViewController, animated: true)
-    //    }
-    //
-    //    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-    //        return .none
-    //    }
-    //
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        let cell = tableView.cellForRow(at: indexPath)
-    //
-    //        view.backgroundColor = LMViewBuilder.colorValue(cell!.value as! String)
-    //        
-    //        dismiss(animated: true)
-    //    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "popoverSegue" {
+            segue.destination.modalPresentationStyle = .popover
+            segue.destination.popoverPresentationController?.delegate = self
+            (segue.destination as! PopoverViewController).drawPadViewController = self
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    public func callColorDlg() {
+        print("callColorDlg")
+    }
+    
+    public func callBrushSizeDlg() {
+        print("callBrushSizeDlg")
+    }
+    
+    public func callBackImageDlg() {
+        print("callBackImageDlg")
+    }
+    
+    public func saveDrawNote() {
+        print("saveDrawNote")
+    }
+
 }
