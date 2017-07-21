@@ -24,7 +24,7 @@ class DrawNote: Object {
 class DrawPath: Object {
     dynamic var saved = false
     dynamic var completed = false
-    let color = RealmOptional<Int>()
+    dynamic var color: String?
     let bushsize = RealmOptional<Int>()
     let points = List<DrawPoint>()
 }
@@ -32,6 +32,25 @@ class DrawPath: Object {
 class DrawPoint: Object {
     dynamic var x: Double = 0
     dynamic var y: Double = 0
+}
+
+class EPubHighLight: Object {
+    dynamic var id = 0
+    dynamic var bookId = ""
+    dynamic var content: String?
+    dynamic var contentPost: String?
+    dynamic var contentPre: String?
+    dynamic var date: String?
+    dynamic var highlightId: String?
+    let page = RealmOptional<Int>()
+    dynamic var type: String?
+    let currentPagerPostion = RealmOptional<Int>()
+    let currentWebviewScrollPos = RealmOptional<Int>()
+    dynamic var note: String?
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 class UserProfile: Object {

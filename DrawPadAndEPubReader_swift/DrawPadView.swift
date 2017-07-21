@@ -14,13 +14,17 @@ class DrawPadView: UIView {
     
     public var currentNote : DrawNote?
     let EDGE_WIDTH : Double = 683.0
+    var SCREEN_WIDTH : Double = 0
     var ratio : Double = 1.0
     var currentDrawPath : DrawPath?
-    var currentColor : UIColor = UIColor.black
-    var currentBrushSize : CGFloat = 4.0
+
+    public var currentColor : UIColor = UIColor.black
+    public var currentBrushSize : CGFloat = 4.0
     
     override func draw(_ rect: CGRect) {
-        ratio = EDGE_WIDTH / Double(self.frame.size.width)
+        SCREEN_WIDTH = Double(self.frame.size.width)
+        //print("EDGE_WIDTH: \(EDGE_WIDTH), SCREEN_WIDTH : \(SCREEN_WIDTH) ")
+        ratio = EDGE_WIDTH / SCREEN_WIDTH
         if currentNote != nil {
             let paths : Results<DrawPath>? = currentNote?.paths.filter("TRUEPREDICATE")
             let context = UIGraphicsGetCurrentContext()
@@ -31,8 +35,8 @@ class DrawPadView: UIView {
     }
     
     private func drawPath(path:DrawPath, context:CGContext){
-        let color = ColorFromInt(rgbValue: path.color.value!)
-        context.setStrokeColor(color.cgColor)
+        let color = UIColor(hexString: path.color!)
+        context.setStrokeColor((color.cgColor))
         let bushsize = CGFloat(path.bushsize.value!)
         context.setLineWidth(bushsize)
         let pathpath = drawPathPath(points: path.points)
@@ -44,8 +48,8 @@ class DrawPadView: UIView {
         let pathpath = CGMutablePath()
         var index : Int = 0
         points.forEach { point in
-            let x_pos = point.x / (ratio * 0.95)
-            let y_pos = (point.y)
+            let x_pos = point.x / ratio
+            let y_pos = point.y
             let cgPoint = CGPoint(x: x_pos, y: y_pos)
             if index == 0 {
                 pathpath.move(to: cgPoint)
@@ -64,36 +68,15 @@ class DrawPadView: UIView {
         self.setNeedsDisplay()
     }
     
-    private func ColorFromInt(rgbValue: Int) -> UIColor {
-        let red =   CGFloat((rgbValue & 0xFF0000) >> 16) / 0xFF
-        let green = CGFloat((rgbValue & 0x00FF00) >> 8) / 0xFF
-        let blue =  CGFloat(rgbValue & 0x0000FF) / 0xFF
-        let alpha = CGFloat(1.0)
-        
-        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
-    }
-    
-    private func ColorToInt(color: UIColor) -> Int? {
-        var r : CGFloat = 0
-        var g : CGFloat = 0
-        var b : CGFloat = 0
-        var alpha: CGFloat = 0
-        color.getRed(&r, green: &g, blue: &b, alpha: &alpha)
-        //print("\(r), \(g) \(b) \(alpha)")
-        let colorvalue = String(format: "-1%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
-        //print("\(colorvalue.hex!)")
-        return colorvalue.hex!
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         currentDrawPath = DrawPath()
-        currentDrawPath?.color.value = ColorToInt(color: currentColor)
+        currentDrawPath?.color = currentColor.toHexString()
         currentDrawPath?.bushsize.value = Int(currentBrushSize)
         
         let drawPoint : DrawPoint = DrawPoint()
         if let touch = touches.first {
             let position = touch.location(in: self)
-            drawPoint.x = Double(position.x) / self.ratio
+            drawPoint.x = Double(position.x) * ratio
             drawPoint.y = Double(position.y)
         }
         
@@ -109,14 +92,14 @@ class DrawPadView: UIView {
     
     private func addPoint(point: CGPoint){
         let drawPoint : DrawPoint = DrawPoint()
-        drawPoint.x = Double(point.x) / self.ratio
+        drawPoint.x = Double(point.x) * ratio
         drawPoint.y = Double(point.y)
         
         let realm = try! Realm()
         try! realm.write{
             if (currentDrawPath?.isInvalidated)! {
                 currentDrawPath = DrawPath()
-                currentDrawPath?.color.value = ColorToInt(color: currentColor)
+                currentDrawPath?.color = currentColor.toHexString()
                 currentDrawPath?.bushsize.value = Int(currentBrushSize)
             }
             realm.add(drawPoint)
@@ -145,6 +128,18 @@ class DrawPadView: UIView {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.touchesEnded(touches, with: event)
     }
+    
+    public func saveDrawPaths(){
+        let realm = try! Realm()
+        try! realm.write {
+            let paths : Results<DrawPath>? = currentNote?.paths.filter("TRUEPREDICATE")
+            paths?.forEach{ drawpath in
+                if !drawpath.saved {
+                    drawpath.saved = true
+                }
+            }
+        }
+    }
 }
 
 extension String {
@@ -152,3 +147,37 @@ extension String {
         return Int(self, radix: 16)
     }
 }
+
+extension UIColor {
+    convenience init(hexString: String) {
+        let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int = UInt32()
+        Scanner(string: hex).scanHexInt32(&int)
+        let a, r, g, b: UInt32
+        switch hex.characters.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (255, 0, 0, 0)
+        }
+        self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+    }
+    
+    public func toHexString() -> String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        
+        return NSString(format:"#%06x", rgb) as String
+    }
+}
+

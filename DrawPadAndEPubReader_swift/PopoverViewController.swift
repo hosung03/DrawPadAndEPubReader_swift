@@ -20,10 +20,9 @@ class PopoverViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
     @IBAction func clickColorMenu(_ sender: UIButton) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
-        drawPadViewController?.callColorDlg()
+        drawPadViewController?.callColorSectionDlg()
     }
 
     @IBAction func clickBrushSizeMenu(_ sender: UIButton) {

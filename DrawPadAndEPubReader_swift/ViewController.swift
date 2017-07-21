@@ -167,7 +167,7 @@ extension ViewController {
     
     fileprivate func prepareCollectionView() {
         let columns: CGFloat = 2
-        let w: CGFloat = (view.bounds.width - columns - 30) / columns
+        let w: CGFloat = (view.bounds.width - 30) / columns
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 15
@@ -186,7 +186,6 @@ extension ViewController {
         collectionView.dataSource = self
         view.layout(collectionView).edges()
         collectionView.reloadData()
-        
     }
 }
 
