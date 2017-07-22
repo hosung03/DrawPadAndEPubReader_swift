@@ -13,18 +13,19 @@ import CoreGraphics
 class DrawPadView: UIView {
     
     public var currentNote : DrawNote?
-    let EDGE_WIDTH : Double = 683.0
-    var SCREEN_WIDTH : Double = 0
-    var ratio : Double = 1.0
-    var currentDrawPath : DrawPath?
+    private let EDGE_WIDTH : Double = 683.0
+    private var SCREEN_WIDTH : Double = 0
+    private var ratio : Double = 1.0
+    private var currentDrawPath : DrawPath?
 
     public var currentColor : UIColor = UIColor.black
     public var currentBrushSize : CGFloat = 4.0
+    public var currentBackgroudImg : UIImage?
     
     override func draw(_ rect: CGRect) {
         SCREEN_WIDTH = Double(self.frame.size.width)
-        //print("EDGE_WIDTH: \(EDGE_WIDTH), SCREEN_WIDTH : \(SCREEN_WIDTH) ")
         ratio = EDGE_WIDTH / SCREEN_WIDTH
+        
         if currentNote != nil {
             let paths : Results<DrawPath>? = currentNote?.paths.filter("TRUEPREDICATE")
             let context = UIGraphicsGetCurrentContext()
@@ -34,6 +35,19 @@ class DrawPadView: UIView {
         }
     }
     
+     public func drawBackground(img : UIImage?){
+        if img == nil {
+            return
+        }
+        currentBackgroudImg = img
+        UIGraphicsBeginImageContext(self.frame.size)
+        currentBackgroudImg?.draw(in: self.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        backgroundColor = UIColor(patternImage: image)
+        self.setNeedsDisplay()
+    }
+   
     private func drawPath(path:DrawPath, context:CGContext){
         let color = UIColor(hexString: path.color!)
         context.setStrokeColor((color.cgColor))
@@ -121,6 +135,11 @@ class DrawPadView: UIView {
             addPoint (point: position)
         }
         
+        let realm = try! Realm()
+        try! realm.write{
+            currentDrawPath?.completed = true
+            realm.add(currentDrawPath!)
+        }
         currentDrawPath = nil
         //self.setNeedsLayout()
     }
@@ -129,9 +148,14 @@ class DrawPadView: UIView {
         self.touchesEnded(touches, with: event)
     }
     
-    public func saveDrawPaths(){
+    public func saveDrawPaths(title : String?){
         let realm = try! Realm()
         try! realm.write {
+            if title != nil {
+                currentNote?.title = title
+                currentNote?.saved = true
+            }
+            
             let paths : Results<DrawPath>? = currentNote?.paths.filter("TRUEPREDICATE")
             paths?.forEach{ drawpath in
                 if !drawpath.saved {

@@ -61,18 +61,7 @@ class LoginViewController: UIViewController {
                     )
                     //print(Realm.Configuration.defaultConfiguration.description)
                     ViewController.isSynced = true
-
                     //ViewController.createInitialDataIfNeeded()
-                    
-//                    let realm = try! Realm()
-//                    try! realm.write {
-//                        let userProfile = UserProfile()
-//                        userProfile.id = 2
-//                        userProfile.name = "test"
-//                        userProfile.email = "test1@localhost.io"
-//                        userProfile.passwd = "1234"
-//                        realm.add(userProfile)
-//                    }
                     
                     SVProgressHUD.dismiss()
                     self.btnLogin.isEnabled = true

@@ -9,22 +9,31 @@ import UIKit
 import Material
 import RealmSwift
 
-class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDelegate,  UIImagePickerControllerDelegate {
 
     public var currentNoteId:Int = 0
     public var currentNote:DrawNote?
-    // public var currentDrawpath:Results<DrawPath>?
     
-    var notificationToken: NotificationToken? = nil
+    public let picker = UIImagePickerController()
+    
+    private var notificationToken: NotificationToken? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("currentNoteId: \(currentNoteId)")
+        picker.delegate = self
         
         let realm = try! Realm()
         if (currentNoteId>0){
             let predicate = NSPredicate(format: "id = %d", currentNoteId)
             currentNote = ((realm.objects(DrawNote.self).filter(predicate).first)!)
+        } else {
+            try! realm.write{
+                currentNoteId = realm.objects(DrawNote.self).max(ofProperty: "id")! + 1
+                currentNote = DrawNote()
+                currentNote?.id = currentNoteId
+                currentNote?.user = ViewController.userEmail!
+                realm.add(currentNote!)
+            }
         }
         
         if currentNote==nil {
@@ -34,7 +43,6 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
         notificationToken = currentNote?.paths.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
             let drawpadview : DrawPadView? = self?.view as? DrawPadView
             if drawpadview != nil {
-                print("notification")
                 if self?.currentNote?.paths.count != 0 {
                     drawpadview?.setNeedsDisplay()
                 } else {
@@ -55,16 +63,17 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
         let drawnote = realm.objects(DrawNote.self).filter(predicate).first
         if drawnote != nil {
             let result = drawnote?.paths.filter("TRUEPREDICATE")
-            result?.forEach { drawpath in
-                if drawpath.saved == false {
-                    drawpath.points.forEach { point in
-                        try! realm.write {
+            try! realm.write {
+                result?.forEach { drawpath in
+                    if drawpath.saved == false {
+                        drawpath.points.forEach { point in
                             realm.delete(point)
                         }
-                    }
-                    try! realm.write {
                         realm.delete(drawpath)
                     }
+                }
+                if !(drawnote?.saved)! {
+                    realm.delete(drawnote!)
                 }
             }
         }
@@ -100,17 +109,17 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     public func callBrushSizeDlg() {
-        print("callBrushSizeDlg")
         self.performSegue(withIdentifier: "callBrushSizeDlg", sender: nil)
     }
     
     public func callBackImageDlg() {
-        print("callBackImageDlg")
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        present(picker, animated: true, completion: nil)
     }
     
     public func saveDrawNote() {
-        print("saveDrawNote")
-        
         if currentNote == nil {
             return
         }
@@ -118,7 +127,7 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
         if (currentNote?.saved)!  {
             let drawpadview : DrawPadView? = self.view as? DrawPadView
             if drawpadview != nil {
-                drawpadview?.saveDrawPaths()
+                drawpadview?.saveDrawPaths(title: nil)
             }
         } else {
             let saveDialog = UIAlertController(title: "Save", message: "\n\n\n", preferredStyle: .alert)
@@ -131,8 +140,21 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
             saveDialog.view.addSubview(titleTextField)
 
             let sliderAction = UIAlertAction(title: "OK", style: .default, handler: { (result : UIAlertAction) -> Void in
-                let title : String = titleTextField.text!
+                var title : String = titleTextField.text!
                 print("title: \(title)")
+                
+                if title == "" {
+                    let formatter: DateFormatter = DateFormatter()
+                    formatter.dateFormat = "yyyyMMdd_HHmmss"
+                    title = "Note_" + formatter.string(from: NSDate() as Date)
+                }
+                
+
+                let drawpadview : DrawPadView? = self.view as? DrawPadView
+                if drawpadview != nil {
+                    drawpadview?.saveDrawPaths(title: title)
+                }
+                
             })
 
             let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
@@ -142,6 +164,7 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
             
             self.present(saveDialog, animated: true, completion: nil)
         }
+        ViewController.showAlert(viewcontroller: self, title: "Save", message: "It's saved!")
     }
 
     public func changeColor(color: UIColor) {
@@ -156,5 +179,19 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
         if drawpadview != nil {
             drawpadview?.currentBrushSize = size
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        dismiss(animated:true, completion: nil)
+
+        let drawpadview : DrawPadView? = self.view as? DrawPadView
+        if drawpadview != nil {
+            drawpadview?.drawBackground(img: chosenImage)
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

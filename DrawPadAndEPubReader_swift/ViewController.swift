@@ -154,7 +154,6 @@ extension ViewController {
         
         let predicate = NSPredicate(format: "user = %@ and saved = true", ViewController.userEmail!)
         let results = realm.objects(DrawNote.self).filter(predicate)
-        print(results.count)
         
         results.forEach { drawnote in
             if(drawnote.title == nil) {

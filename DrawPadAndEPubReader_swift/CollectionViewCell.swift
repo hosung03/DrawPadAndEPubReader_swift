@@ -30,7 +30,7 @@ class CollectionViewCell: UICollectionViewCell {
         titleBar.lineBreakMode = .byWordWrapping
         titleBar.backgroundColor = UIColor.white
         titleBar.textColor = UIColor.black
-        titleBar.numberOfLines = 0
+        titleBar.numberOfLines = 1
         titleBar.font = UIFont(name: "Helvetica", size: 18)
         cellContent.addSubview(titleBar)
         
@@ -44,7 +44,6 @@ class CollectionViewCell: UICollectionViewCell {
         cellContent.layer.shadowRadius = 2.0
         cellContent.layer.shadowOpacity = 1.0
         cellContent.layer.masksToBounds = false
-//        cellContent.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cellContent.layer.cornerRadius).cgPath
     }
     
     required init(coder: NSCoder) {
@@ -68,7 +67,6 @@ class CollectionViewCell: UICollectionViewCell {
                             y: self.frame.size.height - 30,
                             width: self.frame.size.width,
                             height: 30)
-
     }
     
     override func prepareForReuse() {
@@ -78,7 +76,8 @@ class CollectionViewCell: UICollectionViewCell {
     
     func populateCell(_ title: String,
                       imageName: UIImage) {
-        titleBar.text = "   " + title
+        
+        titleBar.text = " " + title
         imageView.image = imageName
     }
     
