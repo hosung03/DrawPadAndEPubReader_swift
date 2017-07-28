@@ -3,7 +3,7 @@
 This is my personal project for implementing a iOS application with several features like
 
 - Drawing Pad
-- EPub Reader (it will be added soon)
+- EPub Reader (modified from FolioReader Open Source)
 - Mobile Database
 - Realtime Synchronization
 
@@ -14,16 +14,20 @@ A Realm soultion (https://realm.io) was used for Mobile Database and Realtime Sy
   <img src="screenshot/ApplicaionsCapture_2.jpg" width="400"/>
 </p>
 <p align="center">
-  <img src="screenshot/Screenshot_1.jpg" width="200"/>
-  <img src="screenshot/Screenshot_2.jpg" width="200"/>
-  <img src="screenshot/Screenshot_3.jpg" width="200"/>
-  <img src="screenshot/Screenshot_4.jpg" width="200"/>
+  <img src="screenshot/Screenshot_1.png" width="200"/>
+  <img src="screenshot/Screenshot_2.png" width="200"/>
+  <img src="screenshot/Screenshot_3.png" width="200"/>
+  <img src="screenshot/Screenshot_4.png" width="200"/>
 </p>
 <p align="center">
-  <img src="screenshot/Screenshot_5.jpg" width="200"/>
+  <img src="screenshot/Screenshot_5.png" width="200"/>
 </p>
 
 ## Prerequisites
+
+- Install Cocoapods
+  * This project is using [CocoaPods](http://cocoapods.org)
+  * To excute this project, firstly use this CocoaPods Tutorial to learn how to install and manage third-party library dependencies
 
 - Build Realm Object Server (This is a database like SQL server) 
   * Install after downloading the current version 
@@ -47,4 +51,6 @@ A Realm soultion (https://realm.io) was used for Mobile Database and Realtime Sy
   </code></pre>
 
 ## References
+- Realm-Draw (https://github.com/realm/realm-cocoa)
+- EPub (https://github.com/FolioReader/FolioReaderKit)
 
