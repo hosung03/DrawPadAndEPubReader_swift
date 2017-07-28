@@ -146,7 +146,8 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
                 if title == "" {
                     let formatter: DateFormatter = DateFormatter()
                     formatter.dateFormat = "yyyyMMdd_HHmmss"
-                    title = "Note_" + formatter.string(from: NSDate() as Date)
+                    let date = Date()
+                    title = "Note_" + formatter.string(from: date)
                 }
                 
 

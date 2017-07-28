@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		043B6E3A1F01A35B00AFF411 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B6E391F01A35B00AFF411 /* ColorCell.swift */; };
 		043B6E3C1F01B00000AFF411 /* ColorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B6E3B1F01B00000AFF411 /* ColorDialog.swift */; };
+		0467F2321F2A7FCC00D017DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0467F2311F2A7FCC00D017DC /* Images.xcassets */; };
+		0467F2341F2A9AE800D017DC /* TOCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F2331F2A9AE800D017DC /* TOCViewController.swift */; };
+		0467F2401F2B6DAE00D017DC /* FRBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F2361F2B6DAE00D017DC /* FRBook.swift */; };
+		0467F2411F2B6DAE00D017DC /* FREpubParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F2371F2B6DAE00D017DC /* FREpubParser.swift */; };
+		0467F2421F2B6DAE00D017DC /* FRMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F2381F2B6DAE00D017DC /* FRMediaType.swift */; };
+		0467F2431F2B6DAE00D017DC /* FRMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F2391F2B6DAE00D017DC /* FRMetadata.swift */; };
+		0467F2441F2B6DAE00D017DC /* FRResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F23A1F2B6DAE00D017DC /* FRResource.swift */; };
+		0467F2451F2B6DAE00D017DC /* FRResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F23B1F2B6DAE00D017DC /* FRResources.swift */; };
+		0467F2461F2B6DAE00D017DC /* FRSmilElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F23C1F2B6DAE00D017DC /* FRSmilElement.swift */; };
+		0467F2471F2B6DAE00D017DC /* FRSmils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F23D1F2B6DAE00D017DC /* FRSmils.swift */; };
+		0467F2481F2B6DAE00D017DC /* FRSpine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F23E1F2B6DAE00D017DC /* FRSpine.swift */; };
+		0467F2491F2B6DAE00D017DC /* FRTocReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F23F1F2B6DAE00D017DC /* FRTocReference.swift */; };
 		046EC39A1F21606200FD8F1A /* BrushSizeDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EC3991F21606200FD8F1A /* BrushSizeDialog.swift */; };
 		04CD80DF1EFBFE6800E13449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80DE1EFBFE6800E13449 /* AppDelegate.swift */; };
 		04CD80E11EFBFE6900E13449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80E01EFBFE6900E13449 /* ViewController.swift */; };
@@ -20,6 +32,43 @@
 		04CD80FB1EFC006900E13449 /* EPubList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04CD80F41EFC006900E13449 /* EPubList.plist */; };
 		04CD80FC1EFC006900E13449 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80F51EFC006900E13449 /* LoginViewController.swift */; };
 		04CD80FD1EFC006900E13449 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD80F61EFC006900E13449 /* Models.swift */; };
+		04DA92701F2686FA00E0E60A /* EPubReaderKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA926F1F2686FA00E0E60A /* EPubReaderKit.swift */; };
+		04DA97431F26883100E0E60A /* The Silver Chair.epub in Resources */ = {isa = PBXBuildFile; fileRef = 04DA97421F26883100E0E60A /* The Silver Chair.epub */; };
+		04DA97451F26894800E0E60A /* EPubReaderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97441F26894800E0E60A /* EPubReaderConfig.swift */; };
+		04DA97471F26899000E0E60A /* QuoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97461F26899000E0E60A /* QuoteImage.swift */; };
+		04DA975E1F26915100E0E60A /* EPubReaderCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA975D1F26915100E0E60A /* EPubReaderCenter.swift */; };
+		04DA97601F26915E00E0E60A /* EPubReaderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA975F1F26915E00E0E60A /* EPubReaderContainer.swift */; };
+		04DA97621F2694BA00E0E60A /* EPubReaderFontsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97611F2694BA00E0E60A /* EPubReaderFontsMenu.swift */; };
+		04DA97641F26959D00E0E60A /* ScrollScrubber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97631F26959D00E0E60A /* ScrollScrubber.swift */; };
+		04DA97661F2695D900E0E60A /* EPubReaderQuoteShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97651F2695D900E0E60A /* EPubReaderQuoteShare.swift */; };
+		04DA97691F26964E00E0E60A /* EPubReaderChapterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97671F26964E00E0E60A /* EPubReaderChapterList.swift */; };
+		04DA976A1F26964E00E0E60A /* EPubReaderChapterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97681F26964E00E0E60A /* EPubReaderChapterListCell.swift */; };
+		04DA976C1F26977200E0E60A /* EPubReaderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA976B1F26977200E0E60A /* EPubReaderPage.swift */; };
+		04DA976E1F269A9700E0E60A /* EPubReaderWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA976D1F269A9700E0E60A /* EPubReaderWebView.swift */; };
+		04DA97701F269BF200E0E60A /* Highlight+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA976F1F269BF200E0E60A /* Highlight+Helper.swift */; };
+		04DA97721F269F5E00E0E60A /* EPubReaderPageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97711F269F5E00E0E60A /* EPubReaderPageIndicator.swift */; };
+		04DA97741F269FAC00E0E60A /* EPubReaderSharingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97731F269FAC00E0E60A /* EPubReaderSharingProvider.swift */; };
+		04DA977B1F26A0E100E0E60A /* HADiscreteSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97771F26A0E100E0E60A /* HADiscreteSlider.swift */; };
+		04DA977C1F26A0E100E0E60A /* SMSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA97791F26A0E100E0E60A /* SMSegment.swift */; };
+		04DA977D1F26A0E100E0E60A /* SMSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA977A1F26A0E100E0E60A /* SMSegmentView.swift */; };
+		04DA9C511F26A78F00E0E60A /* Bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C501F26A78F00E0E60A /* Bridge.js */; };
+		04DA9C531F26A79900E0E60A /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C521F26A79900E0E60A /* Style.css */; };
+		04DA9C6C1F26A7A700E0E60A /* Andada-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C561F26A7A700E0E60A /* Andada-Bold.otf */; };
+		04DA9C6D1F26A7A700E0E60A /* Andada-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C571F26A7A700E0E60A /* Andada-BoldItalic.otf */; };
+		04DA9C6E1F26A7A700E0E60A /* Andada-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C581F26A7A700E0E60A /* Andada-Italic.otf */; };
+		04DA9C6F1F26A7A700E0E60A /* Andada-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C591F26A7A700E0E60A /* Andada-Regular.otf */; };
+		04DA9C701F26A7A700E0E60A /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C5D1F26A7A700E0E60A /* Lato-Bold.ttf */; };
+		04DA9C711F26A7A700E0E60A /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C5E1F26A7A700E0E60A /* Lato-BoldItalic.ttf */; };
+		04DA9C721F26A7A700E0E60A /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C5F1F26A7A700E0E60A /* Lato-Italic.ttf */; };
+		04DA9C731F26A7A700E0E60A /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C601F26A7A700E0E60A /* Lato-Regular.ttf */; };
+		04DA9C741F26A7A700E0E60A /* Lora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C621F26A7A700E0E60A /* Lora-Bold.ttf */; };
+		04DA9C751F26A7A700E0E60A /* Lora-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C631F26A7A700E0E60A /* Lora-BoldItalic.ttf */; };
+		04DA9C761F26A7A700E0E60A /* Lora-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C641F26A7A700E0E60A /* Lora-Italic.ttf */; };
+		04DA9C771F26A7A700E0E60A /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C651F26A7A700E0E60A /* Lora-Regular.ttf */; };
+		04DA9C781F26A7A700E0E60A /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C681F26A7A700E0E60A /* Raleway-Bold.ttf */; };
+		04DA9C791F26A7A700E0E60A /* Raleway-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C691F26A7A700E0E60A /* Raleway-BoldItalic.ttf */; };
+		04DA9C7A1F26A7A700E0E60A /* Raleway-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C6A1F26A7A700E0E60A /* Raleway-Italic.ttf */; };
+		04DA9C7B1F26A7A700E0E60A /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04DA9C6B1F26A7A700E0E60A /* Raleway-Regular.ttf */; };
 		04F2DA5B1EFDC66C00991B80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F2DA5A1EFDC66C00991B80 /* Main.storyboard */; };
 		04F2DA5D1EFDC6BA00991B80 /* DrawPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2DA5C1EFDC6BA00991B80 /* DrawPadViewController.swift */; };
 		04F2DA5F1EFDC6CE00991B80 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2DA5E1EFDC6CE00991B80 /* PopoverViewController.swift */; };
@@ -29,6 +78,18 @@
 /* Begin PBXFileReference section */
 		043B6E391F01A35B00AFF411 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		043B6E3B1F01B00000AFF411 /* ColorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDialog.swift; sourceTree = "<group>"; };
+		0467F2311F2A7FCC00D017DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0467F2331F2A9AE800D017DC /* TOCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOCViewController.swift; sourceTree = "<group>"; };
+		0467F2361F2B6DAE00D017DC /* FRBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRBook.swift; sourceTree = "<group>"; };
+		0467F2371F2B6DAE00D017DC /* FREpubParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FREpubParser.swift; sourceTree = "<group>"; };
+		0467F2381F2B6DAE00D017DC /* FRMediaType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRMediaType.swift; sourceTree = "<group>"; };
+		0467F2391F2B6DAE00D017DC /* FRMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRMetadata.swift; sourceTree = "<group>"; };
+		0467F23A1F2B6DAE00D017DC /* FRResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRResource.swift; sourceTree = "<group>"; };
+		0467F23B1F2B6DAE00D017DC /* FRResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRResources.swift; sourceTree = "<group>"; };
+		0467F23C1F2B6DAE00D017DC /* FRSmilElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRSmilElement.swift; sourceTree = "<group>"; };
+		0467F23D1F2B6DAE00D017DC /* FRSmils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRSmils.swift; sourceTree = "<group>"; };
+		0467F23E1F2B6DAE00D017DC /* FRSpine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRSpine.swift; sourceTree = "<group>"; };
+		0467F23F1F2B6DAE00D017DC /* FRTocReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRTocReference.swift; sourceTree = "<group>"; };
 		046EC3991F21606200FD8F1A /* BrushSizeDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushSizeDialog.swift; sourceTree = "<group>"; };
 		04CD80DB1EFBFE6800E13449 /* DrawPadAndEPubReader_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawPadAndEPubReader_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CD80DE1EFBFE6800E13449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +103,43 @@
 		04CD80F41EFC006900E13449 /* EPubList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EPubList.plist; sourceTree = "<group>"; };
 		04CD80F51EFC006900E13449 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04CD80F61EFC006900E13449 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		04DA926F1F2686FA00E0E60A /* EPubReaderKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderKit.swift; sourceTree = "<group>"; };
+		04DA97421F26883100E0E60A /* The Silver Chair.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The Silver Chair.epub"; sourceTree = "<group>"; };
+		04DA97441F26894800E0E60A /* EPubReaderConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderConfig.swift; sourceTree = "<group>"; };
+		04DA97461F26899000E0E60A /* QuoteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteImage.swift; sourceTree = "<group>"; };
+		04DA975D1F26915100E0E60A /* EPubReaderCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderCenter.swift; sourceTree = "<group>"; };
+		04DA975F1F26915E00E0E60A /* EPubReaderContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderContainer.swift; sourceTree = "<group>"; };
+		04DA97611F2694BA00E0E60A /* EPubReaderFontsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderFontsMenu.swift; sourceTree = "<group>"; };
+		04DA97631F26959D00E0E60A /* ScrollScrubber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollScrubber.swift; sourceTree = "<group>"; };
+		04DA97651F2695D900E0E60A /* EPubReaderQuoteShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderQuoteShare.swift; sourceTree = "<group>"; };
+		04DA97671F26964E00E0E60A /* EPubReaderChapterList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderChapterList.swift; sourceTree = "<group>"; };
+		04DA97681F26964E00E0E60A /* EPubReaderChapterListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderChapterListCell.swift; sourceTree = "<group>"; };
+		04DA976B1F26977200E0E60A /* EPubReaderPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderPage.swift; sourceTree = "<group>"; };
+		04DA976D1F269A9700E0E60A /* EPubReaderWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderWebView.swift; sourceTree = "<group>"; };
+		04DA976F1F269BF200E0E60A /* Highlight+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Highlight+Helper.swift"; sourceTree = "<group>"; };
+		04DA97711F269F5E00E0E60A /* EPubReaderPageIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderPageIndicator.swift; sourceTree = "<group>"; };
+		04DA97731F269FAC00E0E60A /* EPubReaderSharingProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPubReaderSharingProvider.swift; sourceTree = "<group>"; };
+		04DA97771F26A0E100E0E60A /* HADiscreteSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HADiscreteSlider.swift; sourceTree = "<group>"; };
+		04DA97791F26A0E100E0E60A /* SMSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegment.swift; sourceTree = "<group>"; };
+		04DA977A1F26A0E100E0E60A /* SMSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSegmentView.swift; sourceTree = "<group>"; };
+		04DA9C501F26A78F00E0E60A /* Bridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Bridge.js; sourceTree = "<group>"; };
+		04DA9C521F26A79900E0E60A /* Style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		04DA9C561F26A7A700E0E60A /* Andada-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Andada-Bold.otf"; sourceTree = "<group>"; };
+		04DA9C571F26A7A700E0E60A /* Andada-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Andada-BoldItalic.otf"; sourceTree = "<group>"; };
+		04DA9C581F26A7A700E0E60A /* Andada-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Andada-Italic.otf"; sourceTree = "<group>"; };
+		04DA9C591F26A7A700E0E60A /* Andada-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Andada-Regular.otf"; sourceTree = "<group>"; };
+		04DA9C5D1F26A7A700E0E60A /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		04DA9C5E1F26A7A700E0E60A /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		04DA9C5F1F26A7A700E0E60A /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		04DA9C601F26A7A700E0E60A /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		04DA9C621F26A7A700E0E60A /* Lora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Bold.ttf"; sourceTree = "<group>"; };
+		04DA9C631F26A7A700E0E60A /* Lora-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-BoldItalic.ttf"; sourceTree = "<group>"; };
+		04DA9C641F26A7A700E0E60A /* Lora-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Italic.ttf"; sourceTree = "<group>"; };
+		04DA9C651F26A7A700E0E60A /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lora-Regular.ttf"; sourceTree = "<group>"; };
+		04DA9C681F26A7A700E0E60A /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		04DA9C691F26A7A700E0E60A /* Raleway-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-BoldItalic.ttf"; sourceTree = "<group>"; };
+		04DA9C6A1F26A7A700E0E60A /* Raleway-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Italic.ttf"; sourceTree = "<group>"; };
+		04DA9C6B1F26A7A700E0E60A /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		04F2DA5A1EFDC66C00991B80 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		04F2DA5C1EFDC6BA00991B80 /* DrawPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawPadViewController.swift; sourceTree = "<group>"; };
 		04F2DA5E1EFDC6CE00991B80 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
@@ -62,9 +160,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0467F2351F2B6DAE00D017DC /* EPUBCore */ = {
+			isa = PBXGroup;
+			children = (
+				0467F2361F2B6DAE00D017DC /* FRBook.swift */,
+				0467F2371F2B6DAE00D017DC /* FREpubParser.swift */,
+				0467F2381F2B6DAE00D017DC /* FRMediaType.swift */,
+				0467F2391F2B6DAE00D017DC /* FRMetadata.swift */,
+				0467F23A1F2B6DAE00D017DC /* FRResource.swift */,
+				0467F23B1F2B6DAE00D017DC /* FRResources.swift */,
+				0467F23C1F2B6DAE00D017DC /* FRSmilElement.swift */,
+				0467F23D1F2B6DAE00D017DC /* FRSmils.swift */,
+				0467F23E1F2B6DAE00D017DC /* FRSpine.swift */,
+				0467F23F1F2B6DAE00D017DC /* FRTocReference.swift */,
+			);
+			path = EPUBCore;
+			sourceTree = "<group>";
+		};
 		04CD80D21EFBFE6800E13449 = {
 			isa = PBXGroup;
 			children = (
+				04DA97411F26883100E0E60A /* EPubBook */,
+				04DA926E1F2686E900E0E60A /* EPubLib */,
 				04CD80DD1EFBFE6800E13449 /* DrawPadAndEPubReader_swift */,
 				04CD80DC1EFBFE6800E13449 /* Products */,
 				D36412F93438735E951F6BED /* Pods */,
@@ -102,6 +219,156 @@
 				04CD80F41EFC006900E13449 /* EPubList.plist */,
 			);
 			path = DrawPadAndEPubReader_swift;
+			sourceTree = "<group>";
+		};
+		04DA926E1F2686E900E0E60A /* EPubLib */ = {
+			isa = PBXGroup;
+			children = (
+				0467F2351F2B6DAE00D017DC /* EPUBCore */,
+				04DA9C4F1F26A77B00E0E60A /* Resources */,
+				04DA97751F26A0E100E0E60A /* Vendor */,
+				04DA97441F26894800E0E60A /* EPubReaderConfig.swift */,
+				04DA975F1F26915E00E0E60A /* EPubReaderContainer.swift */,
+				04DA975D1F26915100E0E60A /* EPubReaderCenter.swift */,
+				04DA97671F26964E00E0E60A /* EPubReaderChapterList.swift */,
+				04DA97681F26964E00E0E60A /* EPubReaderChapterListCell.swift */,
+				04DA926F1F2686FA00E0E60A /* EPubReaderKit.swift */,
+				04DA976B1F26977200E0E60A /* EPubReaderPage.swift */,
+				04DA97711F269F5E00E0E60A /* EPubReaderPageIndicator.swift */,
+				04DA97611F2694BA00E0E60A /* EPubReaderFontsMenu.swift */,
+				04DA97651F2695D900E0E60A /* EPubReaderQuoteShare.swift */,
+				04DA97731F269FAC00E0E60A /* EPubReaderSharingProvider.swift */,
+				04DA976D1F269A9700E0E60A /* EPubReaderWebView.swift */,
+				04DA97461F26899000E0E60A /* QuoteImage.swift */,
+				04DA97631F26959D00E0E60A /* ScrollScrubber.swift */,
+				04DA976F1F269BF200E0E60A /* Highlight+Helper.swift */,
+				0467F2331F2A9AE800D017DC /* TOCViewController.swift */,
+			);
+			path = EPubLib;
+			sourceTree = "<group>";
+		};
+		04DA97411F26883100E0E60A /* EPubBook */ = {
+			isa = PBXGroup;
+			children = (
+				04DA97421F26883100E0E60A /* The Silver Chair.epub */,
+			);
+			path = EPubBook;
+			sourceTree = "<group>";
+		};
+		04DA97751F26A0E100E0E60A /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				04DA97761F26A0E100E0E60A /* HAControls */,
+				04DA97781F26A0E100E0E60A /* SMSegmentView */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		04DA97761F26A0E100E0E60A /* HAControls */ = {
+			isa = PBXGroup;
+			children = (
+				04DA97771F26A0E100E0E60A /* HADiscreteSlider.swift */,
+			);
+			path = HAControls;
+			sourceTree = "<group>";
+		};
+		04DA97781F26A0E100E0E60A /* SMSegmentView */ = {
+			isa = PBXGroup;
+			children = (
+				04DA97791F26A0E100E0E60A /* SMSegment.swift */,
+				04DA977A1F26A0E100E0E60A /* SMSegmentView.swift */,
+			);
+			path = SMSegmentView;
+			sourceTree = "<group>";
+		};
+		04DA9C4F1F26A77B00E0E60A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0467F2311F2A7FCC00D017DC /* Images.xcassets */,
+				04DA9C501F26A78F00E0E60A /* Bridge.js */,
+				04DA9C521F26A79900E0E60A /* Style.css */,
+				04DA9C541F26A7A700E0E60A /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		04DA9C541F26A7A700E0E60A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				04DA9C551F26A7A700E0E60A /* Andada */,
+				04DA9C5A1F26A7A700E0E60A /* fonts */,
+				04DA9C5C1F26A7A700E0E60A /* Lato */,
+				04DA9C611F26A7A700E0E60A /* Lora */,
+				04DA9C661F26A7A700E0E60A /* OpenSans */,
+				04DA9C671F26A7A700E0E60A /* Raleway */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		04DA9C551F26A7A700E0E60A /* Andada */ = {
+			isa = PBXGroup;
+			children = (
+				04DA9C561F26A7A700E0E60A /* Andada-Bold.otf */,
+				04DA9C571F26A7A700E0E60A /* Andada-BoldItalic.otf */,
+				04DA9C581F26A7A700E0E60A /* Andada-Italic.otf */,
+				04DA9C591F26A7A700E0E60A /* Andada-Regular.otf */,
+			);
+			path = Andada;
+			sourceTree = "<group>";
+		};
+		04DA9C5A1F26A7A700E0E60A /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				04DA9C5B1F26A7A700E0E60A /* Open_Sans */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		04DA9C5B1F26A7A700E0E60A /* Open_Sans */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Open_Sans;
+			sourceTree = "<group>";
+		};
+		04DA9C5C1F26A7A700E0E60A /* Lato */ = {
+			isa = PBXGroup;
+			children = (
+				04DA9C5D1F26A7A700E0E60A /* Lato-Bold.ttf */,
+				04DA9C5E1F26A7A700E0E60A /* Lato-BoldItalic.ttf */,
+				04DA9C5F1F26A7A700E0E60A /* Lato-Italic.ttf */,
+				04DA9C601F26A7A700E0E60A /* Lato-Regular.ttf */,
+			);
+			path = Lato;
+			sourceTree = "<group>";
+		};
+		04DA9C611F26A7A700E0E60A /* Lora */ = {
+			isa = PBXGroup;
+			children = (
+				04DA9C621F26A7A700E0E60A /* Lora-Bold.ttf */,
+				04DA9C631F26A7A700E0E60A /* Lora-BoldItalic.ttf */,
+				04DA9C641F26A7A700E0E60A /* Lora-Italic.ttf */,
+				04DA9C651F26A7A700E0E60A /* Lora-Regular.ttf */,
+			);
+			path = Lora;
+			sourceTree = "<group>";
+		};
+		04DA9C661F26A7A700E0E60A /* OpenSans */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OpenSans;
+			sourceTree = "<group>";
+		};
+		04DA9C671F26A7A700E0E60A /* Raleway */ = {
+			isa = PBXGroup;
+			children = (
+				04DA9C681F26A7A700E0E60A /* Raleway-Bold.ttf */,
+				04DA9C691F26A7A700E0E60A /* Raleway-BoldItalic.ttf */,
+				04DA9C6A1F26A7A700E0E60A /* Raleway-Italic.ttf */,
+				04DA9C6B1F26A7A700E0E60A /* Raleway-Regular.ttf */,
+			);
+			path = Raleway;
 			sourceTree = "<group>";
 		};
 		D36412F93438735E951F6BED /* Pods */ = {
@@ -184,9 +451,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				04CD80FB1EFC006900E13449 /* EPubList.plist in Resources */,
+				04DA9C751F26A7A700E0E60A /* Lora-BoldItalic.ttf in Resources */,
+				04DA9C7A1F26A7A700E0E60A /* Raleway-Italic.ttf in Resources */,
+				04DA97431F26883100E0E60A /* The Silver Chair.epub in Resources */,
+				04DA9C791F26A7A700E0E60A /* Raleway-BoldItalic.ttf in Resources */,
+				04DA9C781F26A7A700E0E60A /* Raleway-Bold.ttf in Resources */,
 				04F2DA5B1EFDC66C00991B80 /* Main.storyboard in Resources */,
+				04DA9C511F26A78F00E0E60A /* Bridge.js in Resources */,
 				04CD80E91EFBFE6900E13449 /* LaunchScreen.storyboard in Resources */,
+				0467F2321F2A7FCC00D017DC /* Images.xcassets in Resources */,
+				04DA9C741F26A7A700E0E60A /* Lora-Bold.ttf in Resources */,
+				04DA9C6C1F26A7A700E0E60A /* Andada-Bold.otf in Resources */,
+				04DA9C771F26A7A700E0E60A /* Lora-Regular.ttf in Resources */,
+				04DA9C531F26A79900E0E60A /* Style.css in Resources */,
+				04DA9C731F26A7A700E0E60A /* Lato-Regular.ttf in Resources */,
+				04DA9C701F26A7A700E0E60A /* Lato-Bold.ttf in Resources */,
+				04DA9C721F26A7A700E0E60A /* Lato-Italic.ttf in Resources */,
+				04DA9C761F26A7A700E0E60A /* Lora-Italic.ttf in Resources */,
 				04CD80E61EFBFE6900E13449 /* Assets.xcassets in Resources */,
+				04DA9C6E1F26A7A700E0E60A /* Andada-Italic.otf in Resources */,
+				04DA9C6F1F26A7A700E0E60A /* Andada-Regular.otf in Resources */,
+				04DA9C7B1F26A7A700E0E60A /* Raleway-Regular.ttf in Resources */,
+				04DA9C6D1F26A7A700E0E60A /* Andada-BoldItalic.otf in Resources */,
+				04DA9C711F26A7A700E0E60A /* Lato-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,13 +535,42 @@
 				04F2DA5D1EFDC6BA00991B80 /* DrawPadViewController.swift in Sources */,
 				04CD80FC1EFC006900E13449 /* LoginViewController.swift in Sources */,
 				04CD80E11EFBFE6900E13449 /* ViewController.swift in Sources */,
+				04DA975E1F26915100E0E60A /* EPubReaderCenter.swift in Sources */,
+				04DA977D1F26A0E100E0E60A /* SMSegmentView.swift in Sources */,
+				04DA97641F26959D00E0E60A /* ScrollScrubber.swift in Sources */,
+				04DA92701F2686FA00E0E60A /* EPubReaderKit.swift in Sources */,
+				0467F2481F2B6DAE00D017DC /* FRSpine.swift in Sources */,
+				04DA97661F2695D900E0E60A /* EPubReaderQuoteShare.swift in Sources */,
 				046EC39A1F21606200FD8F1A /* BrushSizeDialog.swift in Sources */,
+				04DA976E1F269A9700E0E60A /* EPubReaderWebView.swift in Sources */,
+				0467F2401F2B6DAE00D017DC /* FRBook.swift in Sources */,
+				04DA97721F269F5E00E0E60A /* EPubReaderPageIndicator.swift in Sources */,
+				0467F2421F2B6DAE00D017DC /* FRMediaType.swift in Sources */,
+				04DA977B1F26A0E100E0E60A /* HADiscreteSlider.swift in Sources */,
+				0467F2341F2A9AE800D017DC /* TOCViewController.swift in Sources */,
+				0467F2491F2B6DAE00D017DC /* FRTocReference.swift in Sources */,
+				04DA97701F269BF200E0E60A /* Highlight+Helper.swift in Sources */,
 				043B6E3A1F01A35B00AFF411 /* ColorCell.swift in Sources */,
+				04DA97451F26894800E0E60A /* EPubReaderConfig.swift in Sources */,
+				0467F2431F2B6DAE00D017DC /* FRMetadata.swift in Sources */,
+				0467F2461F2B6DAE00D017DC /* FRSmilElement.swift in Sources */,
+				04DA97691F26964E00E0E60A /* EPubReaderChapterList.swift in Sources */,
 				04CD80FD1EFC006900E13449 /* Models.swift in Sources */,
+				04DA97601F26915E00E0E60A /* EPubReaderContainer.swift in Sources */,
 				04CD80F81EFC006900E13449 /* CollectionViewHeader.swift in Sources */,
+				04DA977C1F26A0E100E0E60A /* SMSegment.swift in Sources */,
+				0467F2411F2B6DAE00D017DC /* FREpubParser.swift in Sources */,
+				04DA97621F2694BA00E0E60A /* EPubReaderFontsMenu.swift in Sources */,
+				04DA976A1F26964E00E0E60A /* EPubReaderChapterListCell.swift in Sources */,
+				0467F2471F2B6DAE00D017DC /* FRSmils.swift in Sources */,
+				04DA97741F269FAC00E0E60A /* EPubReaderSharingProvider.swift in Sources */,
 				04CD80DF1EFBFE6800E13449 /* AppDelegate.swift in Sources */,
+				0467F2451F2B6DAE00D017DC /* FRResources.swift in Sources */,
+				04DA97471F26899000E0E60A /* QuoteImage.swift in Sources */,
 				043B6E3C1F01B00000AFF411 /* ColorDialog.swift in Sources */,
+				0467F2441F2B6DAE00D017DC /* FRResource.swift in Sources */,
 				04CD80F91EFC006900E13449 /* DrawPadView.swift in Sources */,
+				04DA976C1F26977200E0E60A /* EPubReaderPage.swift in Sources */,
 				04F2DA5F1EFDC6CE00991B80 /* PopoverViewController.swift in Sources */,
 				04CD80F71EFC006900E13449 /* CollectionViewCell.swift in Sources */,
 			);
@@ -376,6 +692,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DrawPadAndEPubReader_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EPubLib/FolioReaderKit-master/Example/Pods/Realm/core",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hosung.DrawPadAndEPubReader-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -389,6 +709,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DrawPadAndEPubReader_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EPubLib/FolioReaderKit-master/Example/Pods/Realm/core",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hosung.DrawPadAndEPubReader-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

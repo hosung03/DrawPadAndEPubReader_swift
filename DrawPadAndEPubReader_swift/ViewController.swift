@@ -66,6 +66,10 @@ class ViewController:  UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.barTintColor = UIColor(hexString: "#006400")
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -223,6 +227,12 @@ extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             print("epub selected")
+            let config = EPubReaderConfig()
+            config.shouldHideNavigationOnTap = false
+            config.scrollDirection = .vertical
+            
+            let bookPath = Bundle.main.path(forResource: self.epublist[indexPath.item].title, ofType: "epub")
+            EPubReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config, shouldRemoveEpub: false)
         } else {
             print("drawpad selected")
             goDrawPadViewController(no: self.drawnotlist[indexPath.item].noteid!)
