@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopoverViewController: UIViewController {
+class DrawPadRightMenuVC: UIViewController {
 
     var drawPadViewController: DrawPadViewController?
     

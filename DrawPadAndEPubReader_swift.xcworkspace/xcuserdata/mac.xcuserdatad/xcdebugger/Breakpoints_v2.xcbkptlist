@@ -54,16 +54,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EPubLib/EPubReaderCenter.swift"
-            timestampString = "522885218.055217"
+            filePath = "DrawPadAndEPubReader_swift/DrawPadViewController.swift"
+            timestampString = "522971370.90826"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1146"
-            endingLineNumber = "1146"
-            landmarkName = "viewActionMenu(_:)"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "adaptivePresentationStyle(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

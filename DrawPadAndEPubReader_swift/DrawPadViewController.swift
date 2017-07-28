@@ -87,7 +87,7 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
         if segue.identifier == "popoverSegue" {
             segue.destination.modalPresentationStyle = .popover
             segue.destination.popoverPresentationController?.delegate = self
-            (segue.destination as! PopoverViewController).drawPadViewController = self
+            (segue.destination as! DrawPadRightMenuVC).drawPadViewController = self
         } else if segue.identifier == "callColorDlg" {
             segue.destination.modalPresentationStyle = .overCurrentContext
             segue.destination.popoverPresentationController?.delegate = self

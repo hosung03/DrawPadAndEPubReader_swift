@@ -15,6 +15,7 @@ protocol TOCViewControllerDelegate {
 class TOCViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     public var delegate : TOCViewControllerDelegate?
     private var tocItems = [FRTocReference]()
+    public var isDismissed : Bool = true
     
     @IBOutlet weak var tocTableView: UITableView!
     
@@ -40,7 +41,7 @@ class TOCViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TOCCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TOCCell")!
         
         let tocReference = tocItems[(indexPath as NSIndexPath).row]
         cell.textLabel?.text = tocReference.title.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -56,6 +57,10 @@ class TOCViewController: UIViewController, UITableViewDataSource, UITableViewDel
             delegate?.chapterListFromTOCVC(didSelectRowAtIndexPath: indexPath, withTocReference: tocReference)
         }
         
+        dismissTOCVC()
+    }
+
+    func dismissTOCVC() {
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.view.frame = CGRect(x: -UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
@@ -63,7 +68,7 @@ class TOCViewController: UIViewController, UITableViewDataSource, UITableViewDel
         }, completion: { (finished) -> Void in
             self.view.removeFromSuperview()
             self.removeFromParentViewController()
+            self.isDismissed = true
         })
     }
-
 }

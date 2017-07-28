@@ -76,6 +76,9 @@ open class EPubReaderCenter: UIViewController, UICollectionViewDelegate, UIColle
 	fileprivate var currentWebViewScrollPositions = [Int: CGPoint]()
 	fileprivate var currentOrientation: UIInterfaceOrientation?
     
+
+    var mTOCListVC : TOCViewController?
+    
     // MARK: - Init
     
     init() {
@@ -1131,34 +1134,15 @@ open class EPubReaderCenter: UIViewController, UICollectionViewDelegate, UIColle
         present(nav, animated: true, completion: nil)
     }
     
-    
     func viewActionMenu(_ sender: UIBarButtonItem) {
-        print("viewActionMenu")
-//        let quoteShare = EPubReaderQuoteShare(initWithText: string)
-//        let nav = UINavigationController(rootViewController: quoteShare)
-//        
-//        if isPad {
-//            nav.modalPresentationStyle = .formSheet
-//        }
-//        
-//        present(nav, animated: true, completion: nil)
-        DispatchQueue.main.async {
-            if let menuVC : TOCViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "TOCViewController") as! TOCViewController {
-            
-                menuVC.delegate = self
-                self.view.addSubview(menuVC.view)
-                self.addChildViewController(menuVC)
-                menuVC.view.layoutIfNeeded()
-                
-                menuVC.view.frame=CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-                
-                UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                    menuVC.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-                    sender.isEnabled = true
-                }, completion:nil)
-            }
-        }
-
+        let menuVC : EPubRightMenuVC = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "EPubRightMenuVC") as! EPubRightMenuVC
+        
+        menuVC.delegate = self
+        menuVC.modalPresentationStyle = .popover
+        menuVC.popoverPresentationController?.delegate = self
+        menuVC.popoverPresentationController?.barButtonItem = sender
+        menuVC.popoverPresentationController?.sourceView = self.view
+        present(menuVC, animated: true, completion: nil)
     }
 }
 
@@ -1253,5 +1237,47 @@ extension EPubReaderCenter: TOCViewControllerDelegate {
         } else {
             print("Failed to load book because the requested resource is missing.")
         }
+    }
+}
+
+extension EPubReaderCenter: UIPopoverPresentationControllerDelegate, EPubRightMenuVCDelegate {
+    public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func viewTOCList() {
+        if self.mTOCListVC == nil {
+            self.mTOCListVC = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "TOCViewController") as? TOCViewController
+        }
+        
+        if self.mTOCListVC?.isDismissed == true {
+            print("view")
+            DispatchQueue.main.async {
+                 self.mTOCListVC?.delegate = self
+                 self.view.addSubview((self.mTOCListVC?.view)!)
+                 self.addChildViewController(self.mTOCListVC!)
+                 self.mTOCListVC?.view.layoutIfNeeded()
+                 
+                 self.mTOCListVC?.view.frame=CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+                 
+                 UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                    self.mTOCListVC?.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+                    self.mTOCListVC?.isDismissed = false
+                    }, completion:nil)
+            }
+        } else {
+            print("dismiss")
+            DispatchQueue.main.async {
+                self.mTOCListVC?.dismissTOCVC()
+            }
+        }
+    }
+    
+    func viewHighlightList() {
+        print("viewHighlightList")
+    }
+    
+    func viewFontSetting() {
+        print("viewFontSetting")
     }
 }

@@ -226,7 +226,6 @@ extension ViewController: UICollectionViewDelegate {
     @objc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            print("epub selected")
             let config = EPubReaderConfig()
             config.shouldHideNavigationOnTap = false
             config.scrollDirection = .vertical
@@ -234,7 +233,6 @@ extension ViewController: UICollectionViewDelegate {
             let bookPath = Bundle.main.path(forResource: self.epublist[indexPath.item].title, ofType: "epub")
             EPubReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config, shouldRemoveEpub: false)
         } else {
-            print("drawpad selected")
             goDrawPadViewController(no: self.drawnotlist[indexPath.item].noteid!)
         }
     }
