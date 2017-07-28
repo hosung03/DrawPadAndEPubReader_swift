@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ColorSelection.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():ColorSelection.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ColorSelection.collectionView(UICollectionView, cellForItemAt : IndexPath) -&gt; UICollectionViewCell:ColorSelection.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.item">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrawPadView.draw(CGRect) -&gt; ():DrawPadView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentBackgroudImg">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CollectionViewHeader.buttonClicked() -&gt; ():CollectionViewHeader.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.title.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrawPadView.touchesBegan(Set&lt;UITouch&gt;, with : UIEvent?) -&gt; ():DrawPadView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentColor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrawPadViewController.(viewDidLoad() -&gt; ()).(closure #1):DrawPadViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentNoteId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrawPadViewController.viewDidLoad() -&gt; ():DrawPadViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentNoteId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.(getDrawNotesList() -&gt; ()).(closure #1):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "drawnote">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ColorSelection.ColorToInt(color : UIColor) -&gt; Int?:ColorSelection.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

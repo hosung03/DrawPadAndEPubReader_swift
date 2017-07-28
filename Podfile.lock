@@ -1,18 +1,30 @@
 PODS:
+  - AEXML (4.1.0)
+  - FontBlaster (3.0.3)
+  - JSQWebViewController (5.0.0)
   - Material (2.6.3):
     - Material/Core (= 2.6.3)
   - Material/Core (2.6.3)
+  - MenuItemKit (2.0.2)
   - Realm (2.8.2):
     - Realm/Headers (= 2.8.2)
   - Realm/Headers (2.8.2)
   - RealmSwift (2.8.2):
     - Realm (= 2.8.2)
+  - SSZipArchive (1.8.1)
   - SVProgressHUD (2.1.2)
+  - ZFDragableModalTransition (0.6)
 
 DEPENDENCIES:
+  - AEXML
+  - FontBlaster
+  - JSQWebViewController
   - Material (~> 2.0)
+  - MenuItemKit
   - RealmSwift
+  - SSZipArchive
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
+  - ZFDragableModalTransition
 
 EXTERNAL SOURCES:
   SVProgressHUD:
@@ -24,11 +36,17 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SVProgressHUD/SVProgressHUD.git
 
 SPEC CHECKSUMS:
+  AEXML: 647fbb051280f3fb38a1a7caa62b0344055a851c
+  FontBlaster: bec9e80f72f683c9ed591460ec582efd612c977e
+  JSQWebViewController: 0461aa42612b221571556df61d9c09f080cb2eef
   Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
+  MenuItemKit: 581820b12307fc26d9062197af0f3082b9efea23
   Realm: 0e262abf087c7054013e00579274f7e070486d4a
   RealmSwift: 73565e91bc403c1149e4acf31ff9de506b2f9459
+  SSZipArchive: 04547dfa448be5ed7ecbaf7eaf8a6e9eb9b42997
   SVProgressHUD: d65371a8e4482380deddb9fe60e14e59ddb30eb3
+  ZFDragableModalTransition: 0d294eaaba6edfcb9839595de765f9ca06a4b524
 
-PODFILE CHECKSUM: b3e3bc6686cda84ff2e3f261dbc0ba35ca1a7e75
+PODFILE CHECKSUM: b7d8a2bd4aa8978b55bef971c499289710320e01
 
 COCOAPODS: 1.2.0

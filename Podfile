@@ -9,5 +9,10 @@ target 'DrawPadAndEPubReader_swift’ do
   pod 'Material', '~> 2.0'
   pod 'RealmSwift'
   pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
-  
+  pod 'SSZipArchive'
+  pod 'AEXML'
+  pod 'ZFDragableModalTransition'
+  pod 'FontBlaster'
+  pod 'MenuItemKit'
+  pod 'JSQWebViewController'
 end
