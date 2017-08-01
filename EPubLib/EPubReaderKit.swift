@@ -27,6 +27,7 @@ internal let kNightMode = "kNightMode"
 internal let kCurrentTOCMenu = "kCurrentTOCMenu"
 internal let kHighlightRange = 30
 internal var kBookId: String!
+internal var kBookName: String!
 
 public struct EPubReaderError: Error {
     enum ErrorKind {

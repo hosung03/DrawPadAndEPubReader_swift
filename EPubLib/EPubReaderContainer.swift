@@ -3,7 +3,7 @@
 //  EPubReaderKit
 //
 //  Created by Heberti Almeida on 15/04/15.
-//  Modified by Hosung Lee on 07/27/17
+//  Modified by Hosung, Lee on 2017. 7. 27
 //  Copyright (c) 2015 EPub Reader. All rights reserved.
 //
 
@@ -116,6 +116,7 @@ open class EPubReaderContainer: UIViewController {
         centerNavigationController.navigationBar.tintColor = UIColor.white
         centerNavigationController.navigationBar.barTintColor = UIColor(hexString: "#006400")
         centerNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        //
         
         centerNavigationController.setNavigationBarHidden(readerConfig.shouldHideNavigationOnTap, animated: false)
         view.addSubview(centerNavigationController.view)

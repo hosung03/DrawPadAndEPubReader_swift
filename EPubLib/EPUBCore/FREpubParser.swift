@@ -86,7 +86,10 @@ class FREpubParser: NSObject, SSZipArchiveDelegate {
         // Skip from backup this folder
         addSkipBackupAttributeToItemAtURL(URL(fileURLWithPath: bookBasePath, isDirectory: true))
         
+
         kBookId = bookName
+        kBookName = bookName.replacingOccurrences(of: ".epub", with: "")
+        
         try readContainer()
         try readOpf()
         return book

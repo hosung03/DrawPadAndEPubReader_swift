@@ -139,9 +139,8 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
             titleTextField.dividerActiveColor = Color.blue
             saveDialog.view.addSubview(titleTextField)
 
-            let sliderAction = UIAlertAction(title: "OK", style: .default, handler: { (result : UIAlertAction) -> Void in
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (result : UIAlertAction) -> Void in
                 var title : String = titleTextField.text!
-                print("title: \(title)")
                 
                 if title == "" {
                     let formatter: DateFormatter = DateFormatter()
@@ -160,7 +159,7 @@ class DrawPadViewController: UIViewController, UIPopoverPresentationControllerDe
 
             let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
 
-            saveDialog.addAction(sliderAction)
+            saveDialog.addAction(okAction)
             saveDialog.addAction(cancelAction)
             
             self.present(saveDialog, animated: true, completion: nil)

@@ -3,7 +3,7 @@
 //  EPubReaderKit
 //
 //  Created by Heberti Almeida on 08/04/15.
-//  Modified by Hosung Lee on 07/27/17
+//  Modified by Hosung, Lee on 2017. 7. 27
 //  Copyright (c) 2015 EPub Reader. All rights reserved.
 //
 

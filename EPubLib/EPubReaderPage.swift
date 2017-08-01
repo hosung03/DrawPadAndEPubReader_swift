@@ -3,6 +3,7 @@
 //  EPubReaderKit
 //
 //  Created by Heberti Almeida on 10/04/15.
+//  Modified by Hosung, Lee on 2017. 7. 29
 //  Copyright (c) 2015 EPub Reader. All rights reserved.
 //
 
@@ -10,6 +11,7 @@ import UIKit
 import SafariServices
 import MenuItemKit
 import JSQWebViewController
+import RealmSwift
 
 /// Protocol which is used from `EPubReaderPage`s.
 @objc public protocol EPubReaderPageDelegate: class {
@@ -38,6 +40,16 @@ open class EPubReaderPage: UICollectionViewCell, UIWebViewDelegate, UIGestureRec
     fileprivate var colorView: UIView!
     fileprivate var shouldShowBar = true
     fileprivate var menuIsVisible = false
+    
+    // for sync
+    private var notificationToken: NotificationToken? = nil
+    var mHighlights : Results<EPubHighLight>?
+    var curHtmlContent : String?
+    var curBaseURL : URL?
+    var initLoading : Bool = true
+    
+    var curYOffsetValue : CGFloat?
+    
     
     // MARK: - View life cicle
     
@@ -70,6 +82,11 @@ open class EPubReaderPage: UICollectionViewCell, UIWebViewDelegate, UIGestureRec
         tapGestureRecognizer.numberOfTapsRequired = 1
         tapGestureRecognizer.delegate = self
         webView.addGestureRecognizer(tapGestureRecognizer)
+        
+        
+        // for sync
+        mHighlights = EPubHighLight.allByBookId(kBookName, andPage: pageNumber as NSNumber?)
+        
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -108,41 +125,77 @@ open class EPubReaderPage: UICollectionViewCell, UIWebViewDelegate, UIGestureRec
     }
     
     func loadHTMLString(_ htmlContent: String!, baseURL: URL!) {
+        // for sync
+        curHtmlContent = htmlContent
+        curBaseURL = baseURL
+        initLoading = true
+
 		// Insert the stored highlights to the HTML
 		let tempHtmlContent = htmlContentWithInsertHighlights(htmlContent)
         // Load the html into the webview
         webView.alpha = 0
         webView.loadHTMLString(tempHtmlContent, baseURL: baseURL)
+        
     }
 
 	// MARK: - Highlights
 
+    fileprivate func htmlContentWithInsertHighlights(_ htmlContent: String) -> String {
+        var tempHtmlContent = htmlContent as NSString
+        
+        //let mHighlights : Results<EPubHighLight>? = EPubHighLight.allByBookId(kBookName, andPage: pageNumber as NSNumber?)
+        
+        if self.mHighlights != nil && self.mHighlights?.count > 0 {
+            self.mHighlights?.forEach{ item in
+                let style = item.type!
+                let tag = "<highlight id=\"\(item.highlightId!)\" onclick=\"callHighlightURL(this);\" class=\"\(style)\">\(item.content!)</highlight>"
+                var locator = item.contentPre! + item.content!
+                locator += item.contentPost!
+                locator = EPubHighLight.removeSentenceSpam(locator) /// Fix for Highlights
+                
+                let range: NSRange = tempHtmlContent.range(of: locator, options: .literal)
+                if range.location != NSNotFound {
+                    let newRange = NSRange(location: range.location + (item.contentPre?.characters.count)!, length: (item.content?.characters.count)!)
+                    tempHtmlContent = tempHtmlContent.replacingCharacters(in: newRange, with: tag) as NSString
+                }
+                else {
+                    print("highlight range not found")
+                }
+            }
+        }
+        return tempHtmlContent as String
+    }
+    
+    /*
 	fileprivate func htmlContentWithInsertHighlights(_ htmlContent: String) -> String {
 		var tempHtmlContent = htmlContent as NSString
-		// Restore highlights
-//		let highlights = Highlight.allByBookId((kBookId as NSString).deletingPathExtension, andPage: pageNumber as NSNumber?)
-//
-//		if highlights.count > 0 {
-//			for item in highlights {
-//				let style = HighlightStyle.classForStyle(item.type)
-//				let tag = "<highlight id=\"\(item.highlightId!)\" onclick=\"callHighlightURL(this);\" class=\"\(style)\">\(item.content!)</highlight>"
-//				var locator = item.contentPre + item.content
-//                locator += item.contentPost
-//				locator = Highlight.removeSentenceSpam(locator) /// Fix for Highlights
-//				let range: NSRange = tempHtmlContent.range(of: locator, options: .literal)
-//
-//				if range.location != NSNotFound {
-//					let newRange = NSRange(location: range.location + item.contentPre.characters.count, length: item.content.characters.count)
-//					tempHtmlContent = tempHtmlContent.replacingCharacters(in: newRange, with: tag) as NSString
-//				}
-//				else {
-//					print("highlight range not found")
-//				}
-//			}
-//		}
+        
+        let highlights : Results<EPubHighLight>? = EPubHighLight.allByBookId(kBookName, andPage: pageNumber as NSNumber?)
+        
+		if highlights?.count > 0 {
+			//for item in highlights {
+            highlights?.forEach{ item in
+                //let style = HighlightStyle.classForStyle(item.type)
+				let style = item.type!
+				let tag = "<highlight id=\"\(item.highlightId!)\" onclick=\"callHighlightURL(this);\" class=\"\(style)\">\(item.content!)</highlight>"
+				var locator = item.contentPre! + item.content!
+                locator += item.contentPost!
+				locator = EPubHighLight.removeSentenceSpam(locator) /// Fix for Highlights
+
+                let range: NSRange = tempHtmlContent.range(of: locator, options: .literal)
+				if range.location != NSNotFound {
+					let newRange = NSRange(location: range.location + (item.contentPre?.characters.count)!, length: (item.content?.characters.count)!)
+					tempHtmlContent = tempHtmlContent.replacingCharacters(in: newRange, with: tag) as NSString
+				}
+				else {
+					print("highlight range not found")
+				}
+			}
+		}
 		return tempHtmlContent as String
 	}
-
+    */
+    
     // MARK: - UIWebView Delegate
     
     open func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -177,6 +230,28 @@ open class EPubReaderPage: UICollectionViewCell, UIWebViewDelegate, UIGestureRec
         }) 
 
         delegate?.pageDidLoad?(self)
+        
+        // for sync
+        notificationToken = mHighlights?.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            
+            if self?.initLoading == true {
+                self?.initLoading = false
+                print("notificationToken init")
+                
+                if self?.curYOffsetValue != nil {
+                    self?.webView.scrollView.contentOffset.y = (self?.curYOffsetValue)!
+                }
+            }
+            else {
+                print("notificationToken reinit")
+                let tempHtmlContent = self?.htmlContentWithInsertHighlights((self?.curHtmlContent!)!)
+                // Load the html into the webview
+                self?.initLoading = true
+                self?.curYOffsetValue = self?.webView.scrollView.contentOffset.y
+                self?.webView.alpha = 0
+                self?.webView.loadHTMLString(tempHtmlContent!, baseURL: self?.curBaseURL)
+            }
+        }
     }
     
     open func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {

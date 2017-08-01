@@ -92,40 +92,40 @@ open class EPubReaderWebView: UIWebView {
 
 	func remove(_ sender: UIMenuController?) {
         print("remove")
-//		if let removedId = js("removeThisHighlight()") {
-//			Highlight.removeById(removedId)
-//		}
+		if let removedId = js("removeThisHighlight()") {
+			EPubHighLight.removeById(removedId)
+		}
 		setMenuVisible(false)
 	}
 
 	func highlight(_ sender: UIMenuController?) {
         print("hight")
-//		let highlightAndReturn = js("highlightString('\(HighlightStyle.classForStyle(EPubReader.currentHighlightStyle))')")
-//		let jsonData = highlightAndReturn?.data(using: String.Encoding.utf8)
-//
-//		do {
-//			let json = try JSONSerialization.jsonObject(with: jsonData!, options: []) as! NSArray
-//			let dic = json.firstObject as! [String: String]
-//			let rect = CGRectFromString(dic["rect"]!)
-//            guard let startOffset = dic["startOffset"] else {
-//                return
-//            }
-//            guard let endOffset = dic["endOffset"] else {
-//                return
-//            }
-//
-//			createMenu(options: true)
-//			setMenuVisible(true, andRect: rect)
-//
-//			// Persist
-//			let html = js("getHTML()")
-//			if let highlight = Highlight.matchHighlight(html, andId: dic["id"]!, startOffset: startOffset, endOffset: endOffset) {
-//				highlight.persist()
-//			}
-//            
-//		} catch {
-//			print("Could not receive JSON")
-//		}
+		let highlightAndReturn = js("highlightString('\(EPubHighLightStyle.classForStyle(EPubReader.currentHighlightStyle))')")
+		let jsonData = highlightAndReturn?.data(using: String.Encoding.utf8)
+
+		do {
+			let json = try JSONSerialization.jsonObject(with: jsonData!, options: []) as! NSArray
+			let dic = json.firstObject as! [String: String]
+			let rect = CGRectFromString(dic["rect"]!)
+            guard let startOffset = dic["startOffset"] else {
+                return
+            }
+            guard let endOffset = dic["endOffset"] else {
+                return
+            }
+
+			createMenu(options: true)
+			setMenuVisible(true, andRect: rect)
+
+			// Persist
+			let html = js("getHTML()")
+			if let highlight = EPubHighLight.matchHighlight(html, andId: dic["id"]!, startOffset: startOffset, endOffset: endOffset) {
+				highlight.persist()
+			}
+            
+		} catch {
+			print("Could not receive JSON")
+		}
 	}
 
 	func define(_ sender: UIMenuController?) {
@@ -166,12 +166,12 @@ open class EPubReaderWebView: UIWebView {
 		changeHighlightStyle(sender, style: .underline)
 	}
 
-	func changeHighlightStyle(_ sender: UIMenuController?, style: HighlightStyle) {
-//		EPubReader.currentHighlightStyle = style.rawValue
-//
-//		if let updateId = js("setHighlightStyle('\(HighlightStyle.classForStyle(style.rawValue))')") {
-//			Highlight.updateById(updateId, type: style)
-//		}
+	func changeHighlightStyle(_ sender: UIMenuController?, style: EPubHighLightStyle) {
+		EPubReader.currentHighlightStyle = style.rawValue
+
+		if let updateId = js("setHighlightStyle('\(EPubHighLightStyle.classForStyle(style.rawValue))')") {
+            EPubHighLight.updateById(updateId, type: EPubHighLightStyle.classForStyle(style.rawValue))
+		}
 	}
 
 	// MARK: - Create and show menu

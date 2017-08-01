@@ -3,7 +3,7 @@
 //  EPubReaderKit
 //
 //  Created by Heberti Almeida on 08/04/15.
-//  Modified by Hosung Lee on 07/27/17
+//  Modified by Hosung, Lee on 2017. 7. 27
 //  Copyright (c) 2015 EPub Reader. All rights reserved.
 //
 
@@ -1194,7 +1194,7 @@ extension EPubReaderCenter: EPubReaderPageDelegate {
 }
 
 // MARK: EPubReaderChapterListDelegate
-
+/*
 extension EPubReaderCenter: EPubReaderChapterListDelegate {
 
     func chapterList(_ chapterList: EPubReaderChapterList, didSelectRowAtIndexPath indexPath: IndexPath, withTocReference reference: FRTocReference) {
@@ -1223,7 +1223,7 @@ extension EPubReaderCenter: EPubReaderChapterListDelegate {
         }
     }
 }
-
+*/
 extension EPubReaderCenter: TOCViewControllerDelegate {
     func chapterListFromTOCVC(didSelectRowAtIndexPath indexPath: IndexPath, withTocReference reference: FRTocReference){
         let item = findPageByResource(reference)
@@ -1251,7 +1251,6 @@ extension EPubReaderCenter: UIPopoverPresentationControllerDelegate, EPubRightMe
         }
         
         if self.mTOCListVC?.isDismissed == true {
-            print("view")
             DispatchQueue.main.async {
                  self.mTOCListVC?.delegate = self
                  self.view.addSubview((self.mTOCListVC?.view)!)
@@ -1266,7 +1265,6 @@ extension EPubReaderCenter: UIPopoverPresentationControllerDelegate, EPubRightMe
                     }, completion:nil)
             }
         } else {
-            print("dismiss")
             DispatchQueue.main.async {
                 self.mTOCListVC?.dismissTOCVC()
             }
@@ -1274,10 +1272,21 @@ extension EPubReaderCenter: UIPopoverPresentationControllerDelegate, EPubRightMe
     }
     
     func viewHighlightList() {
-        print("viewHighlightList")
+        let highlightListVC = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "HighlightListViewController") as? HighlightListViewController
+        let nav = UINavigationController(rootViewController: highlightListVC!)
+        
+        nav.navigationBar.tintColor = UIColor.white
+        nav.navigationBar.barTintColor = UIColor(hexString: "#006400")
+        nav.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        if isPad {
+            nav.modalPresentationStyle = .formSheet
+        }
+        
+        present(nav, animated: true, completion: nil)
     }
     
     func viewFontSetting() {
-        print("viewFontSetting")
+        presentFontsMenu()
     }
 }

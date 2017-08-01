@@ -2,7 +2,7 @@
 //  EPubRightMenuVC.swift
 //  DrawPadAndEPubReader_swift
 //
-//  Created by mac on 2017. 7. 28..
+//  Created by Hosung, Lee on 2017. 7. 28..
 //  Copyright © 2017년 hosung. All rights reserved.
 //
 

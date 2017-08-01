@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
                 if let user = user {
                     Realm.Configuration.defaultConfiguration = Realm.Configuration(
                         syncConfiguration: SyncConfiguration(user: user, realmURL: ViewController.syncServerURL),
-                        objectTypes: [UserProfile.self, DrawNote.self, DrawPath.self, DrawPoint.self]
+                        objectTypes: [UserProfile.self, DrawNote.self, DrawPath.self, DrawPoint.self, EPubHighLight.self]
                     )
                     //print(Realm.Configuration.defaultConfiguration.description)
                     ViewController.isSynced = true
@@ -89,7 +89,7 @@ class LoginViewController: UIViewController {
     
     private func onLoginProcess() {
         let realm = try! Realm()
-        let predicate = NSPredicate(format: "email = %@", emailTextField.text!)
+        var predicate = NSPredicate(format: "email = %@", emailTextField.text!)
         let user = realm.objects(UserProfile.self).filter(predicate).first
         //print(realm.objects(UserProfile.self).count)
 
