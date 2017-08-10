@@ -1,8 +1,8 @@
 //
-//  LoginViewController.swift
-//  DrawPadAndEPubReader
+//  SignupViewController.swift
+//  DrawPadAndEPubReader_swift
 //
-//  Created by Hosung, Lee on 2017. 6. 7..
+//  Created by mac on 2017. 8. 8..
 //  Copyright © 2017년 hosung. All rights reserved.
 //
 
@@ -11,28 +11,25 @@ import Material
 import RealmSwift
 import SVProgressHUD
 
-class LoginViewController: UIViewController {
+class SignupViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: TextField!
     @IBOutlet weak var emailTextField: TextField!
     @IBOutlet weak var passwdTextField: TextField!
-    @IBOutlet weak var btnLogin: RaisedButton!
+    @IBOutlet weak var repasswdTextField: TextField!
     @IBOutlet weak var btnSignup: RaisedButton!
-    @IBOutlet weak var btnServerSetting: RaisedButton!
-
+    @IBOutlet weak var btnGoLogin: RaisedButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(hexString: "#018d01")
         
-        // for test
-        emailTextField.text = "test@localhost.io"
-        passwdTextField.text = "1234"
-        
+        prepareNameField()
         prepareEmailField()
         preparePasswordField()
-        prepareLoginButton()
+        prepareRePasswordField()
         prepareSignupButton()
-        prepareSeverSettingButton()
-        
+        prepareGoLoginButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,16 +41,16 @@ class LoginViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
-    @IBAction func clickBtnLogin(_ sender: RaisedButton) {
-        if !validate() {
+
+    @IBAction func clickBtnSignup(_ sender: RaisedButton) {
+        if !validate()  {
             return
         }
         
         if ViewController.isSynced {
-            self.onLoginProcess()
+            self.onSignupProcess()
         } else {
-            btnLogin.isEnabled = false
+            btnSignup.isEnabled = false
             
             SVProgressHUD.show(withStatus: "Authenticating...")
             SVProgressHUD.setDefaultMaskType(.black)
@@ -70,20 +67,27 @@ class LoginViewController: UIViewController {
                     //ViewController.createInitialDataIfNeeded()
                     
                     SVProgressHUD.dismiss()
-                    self.btnLogin.isEnabled = true
-                    self.onLoginProcess()
-                 } else if let error = error {
+                    self.btnSignup.isEnabled = true
+                    self.onSignupProcess()
+                } else if let error = error {
                     SVProgressHUD.dismiss()
-                    self.btnLogin.isEnabled = true
-
+                    self.btnSignup.isEnabled = true
+                    
                     ViewController.showAlert(viewcontroller: self, title: "Connection Error", message: "Realm Server Connection Error!!")
                     print(error.localizedDescription)
                 }
             })
         }
     }
-    
+
     func validate() -> Bool {
+        let name = nameTextField.text!
+        if name.characters.count < 3 {
+            nameTextField.becomeFirstResponder()
+            ViewController.showAlert(viewcontroller: self, title: "aler", message: "Name must have at least 3 characters")
+            return false
+        }
+        
         let email = emailTextField.text!
         if !email.isValidEmail() {
             emailTextField.becomeFirstResponder()
@@ -97,30 +101,63 @@ class LoginViewController: UIViewController {
             return false
         }
         
+        let repassword = repasswdTextField.text!
+        if password != repassword {
+            ViewController.showAlert(viewcontroller: self, title: "aler", message: "RePassword  do not match with Password")
+            return false
+        }
+        
         return true
     }
     
-    private func onLoginProcess() {
+    private func onSignupProcess() {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "email = %@", emailTextField.text!)
         let user = realm.objects(UserProfile.self).filter(predicate).first
-
-        if user != nil {
-            if user?.passwd == passwdTextField.text! {
-                DispatchQueue.main.async {
-                    ViewController.userEmail = self.emailTextField.text!
-                    self.navigationController?.popViewController(animated: true)
-                }
-            } else {
-                ViewController.showAlert(viewcontroller: self, title: "Login Error", message: "Your password is wrong!")
+        
+        if user == nil {
+            let realm = try! Realm()
+            try! realm.write {
+                let userProfile = UserProfile()
+                userProfile.id = realm.objects(UserProfile.self).max(ofProperty: "id")! + 1
+                userProfile.name = nameTextField.text!
+                userProfile.email = emailTextField.text!
+                userProfile.passwd = passwdTextField.text!
+                realm.add(userProfile)
             }
+            
+            dismiss()
         } else {
-            ViewController.showAlert(viewcontroller: self, title: "Login Error", message: "Your email address is wrong!")
+            ViewController.showAlert(viewcontroller: self, title: "Signup Error", message: "This email is in use!")
         }
     }
+    
+    @IBAction func clickBtnGoLogin(_ sender: RaisedButton) {
+        dismiss()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 }
 
-extension LoginViewController {
+extension SignupViewController {
+    fileprivate func prepareNameField() {
+        nameTextField.delegate = self
+        nameTextField.textColor = Color.darkGray
+        nameTextField.placeholder = "Name"
+        nameTextField.placeholderActiveColor = Color.white
+        nameTextField.dividerActiveColor = Color.white
+        nameTextField.detail = ""
+        nameTextField.detailColor = Color.red
+    }
+
     fileprivate func prepareEmailField() {
         emailTextField.delegate = self
         emailTextField.textColor = Color.darkGray
@@ -142,44 +179,25 @@ extension LoginViewController {
         passwdTextField.isSecureTextEntry = true
     }
     
-    fileprivate func prepareLoginButton() {
-        btnLogin.backgroundColor = UIColor(hexString: "#006400")
-        btnLogin.titleColor = Color.white
+    fileprivate func prepareRePasswordField() {
+        repasswdTextField.delegate = self
+        repasswdTextField.textColor = Color.darkGray
+        repasswdTextField.placeholder = "RePassword"
+        repasswdTextField.placeholderActiveColor = Color.white
+        repasswdTextField.dividerActiveColor = Color.white
+        repasswdTextField.detail = ""
+        repasswdTextField.detailColor = Color.red
+        repasswdTextField.isSecureTextEntry = true
     }
     
     fileprivate func prepareSignupButton() {
-        btnSignup.backgroundColor = UIColor(hexString: "#018d01")
+        btnSignup.backgroundColor = UIColor(hexString: "#006400")
         btnSignup.titleColor = Color.white
     }
     
-    fileprivate func prepareSeverSettingButton() {
-        btnServerSetting.backgroundColor = UIColor(hexString: "#018d01")
-        btnServerSetting.titleColor = Color.white
+    fileprivate func prepareGoLoginButton() {
+        btnGoLogin.backgroundColor = UIColor(hexString: "#018d01")
+        btnGoLogin.titleColor = Color.white
     }
     
-}
-
-extension UIViewController: TextFieldDelegate {
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.textColor = Color.white
-    }
-    
-    public func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.textColor = Color.darkGray
-    }
-    
-    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return true
-    }
-}
-
-extension String {
-    func isValidEmail() -> Bool {
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: characters.count)) != nil
-    }
 }

@@ -42,9 +42,9 @@ class DrawNoteItem : ListItem {
 class ViewController:  UIViewController {
     fileprivate var collectionView: UICollectionView!
     
-    static let serverURL: String = "127.0.0.1"
-    static let realmID:String = "demo@localhost.io"
-    static let realmPasswd:String = "demo1234"
+    static var serverURL: String = "127.0.0.1"
+    static var realmID:String = "demo@localhost.io"
+    static var realmPasswd:String = "demo1234"
     
     static let syncServerURL = URL(string: "realm://\(serverURL):9080/~/DrawPad")!
     static let syncAuthURL = URL(string: "http://\(serverURL):9080")!

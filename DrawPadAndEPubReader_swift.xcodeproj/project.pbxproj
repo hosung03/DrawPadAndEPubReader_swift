@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		043B6E3A1F01A35B00AFF411 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B6E391F01A35B00AFF411 /* ColorCell.swift */; };
 		043B6E3C1F01B00000AFF411 /* ColorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B6E3B1F01B00000AFF411 /* ColorDialog.swift */; };
+		04433D5E1F3A57040084FA01 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04433D5D1F3A57040084FA01 /* SignupViewController.swift */; };
+		04433D601F3A6EE30084FA01 /* ObjSvrSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04433D5F1F3A6EE30084FA01 /* ObjSvrSettingViewController.swift */; };
 		0467F2321F2A7FCC00D017DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0467F2311F2A7FCC00D017DC /* Images.xcassets */; };
 		0467F2341F2A9AE800D017DC /* TOCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F2331F2A9AE800D017DC /* TOCViewController.swift */; };
 		0467F2401F2B6DAE00D017DC /* FRBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467F2361F2B6DAE00D017DC /* FRBook.swift */; };
@@ -79,6 +81,8 @@
 /* Begin PBXFileReference section */
 		043B6E391F01A35B00AFF411 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		043B6E3B1F01B00000AFF411 /* ColorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDialog.swift; sourceTree = "<group>"; };
+		04433D5D1F3A57040084FA01 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		04433D5F1F3A6EE30084FA01 /* ObjSvrSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjSvrSettingViewController.swift; sourceTree = "<group>"; };
 		0467F2311F2A7FCC00D017DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0467F2331F2A9AE800D017DC /* TOCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOCViewController.swift; sourceTree = "<group>"; };
 		0467F2361F2B6DAE00D017DC /* FRBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRBook.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				04F2DA5C1EFDC6BA00991B80 /* DrawPadViewController.swift */,
 				04CD80F21EFC006900E13449 /* DrawPadView.swift */,
 				04CD80F51EFC006900E13449 /* LoginViewController.swift */,
+				04433D5D1F3A57040084FA01 /* SignupViewController.swift */,
+				04433D5F1F3A6EE30084FA01 /* ObjSvrSettingViewController.swift */,
 				04CD80F61EFC006900E13449 /* Models.swift */,
 				04CD80DE1EFBFE6800E13449 /* AppDelegate.swift */,
 				04F2DA5E1EFDC6CE00991B80 /* DrawPadRightMenuVC.swift */,
@@ -535,6 +541,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04433D5E1F3A57040084FA01 /* SignupViewController.swift in Sources */,
 				04F2DA5D1EFDC6BA00991B80 /* DrawPadViewController.swift in Sources */,
 				04CD80FC1EFC006900E13449 /* LoginViewController.swift in Sources */,
 				04CD80E11EFBFE6900E13449 /* ViewController.swift in Sources */,
@@ -575,6 +582,7 @@
 				0467F2441F2B6DAE00D017DC /* FRResource.swift in Sources */,
 				04CD80F91EFC006900E13449 /* DrawPadView.swift in Sources */,
 				04DA976C1F26977200E0E60A /* EPubReaderPage.swift in Sources */,
+				04433D601F3A6EE30084FA01 /* ObjSvrSettingViewController.swift in Sources */,
 				04F2DA5F1EFDC6CE00991B80 /* DrawPadRightMenuVC.swift in Sources */,
 				04CD80F71EFC006900E13449 /* CollectionViewCell.swift in Sources */,
 			);
